@@ -1,0 +1,39 @@
+@import "../../../../styles/main.scss";
+
+.text-field {
+  height: 25px;
+  width: 90%;
+  margin-top: 50px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.field-container input {
+  border: none;
+  border-bottom: $gray solid 1px;
+}
+
+.tile-form-exit {
+  font-size: 16px;
+  text-align: right;
+  color: black;
+  cursor: pointer;
+}
+
+.button-container {
+  margin-top: 25px;
+}
+
+.tile-add-button {
+  width: 75px;
+}
+
+.submit-button {
+  border: none;
+  background-color: $gray;
+  border-radius: 15px;
+  color: white;
+  font-size: 14px;
+  padding: 5px 10px 5px 10px;
+  cursor: pointer;
+}

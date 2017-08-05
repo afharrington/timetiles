@@ -1,0 +1,84 @@
+@import "../../../../styles/main.scss";
+
+.entry-add-form {
+  background-color: white;
+  width: 75%;
+  margin: 0 auto;
+  color: black;
+  margin-top: 10px;
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  box-shadow: $shadow;
+}
+
+.cancel {
+  display: inline-block;
+  margin-left: 75%;
+  color: #b71c1c;
+  font-size: 12px;
+}
+
+.field-container {
+  display: inline;
+}
+
+.details {
+  text-align: left; // formats placeholder
+  display: block; // keeps field on its own line
+  width: 100%;
+  height: 50px;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.text-box textarea {
+  resize: none;
+  box-sizing: border-box;
+  padding: 10px;
+  border-color: #B0BEC5;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+}
+:-moz-placeholder { /* Firefox 18- */
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+}
+
+.hours, .min {
+  width: 50px;
+  margin-top: 30px;
+  text-align: center;
+  font-size: 14px;
+  border: 1px solid #B0BEC5;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+}
+
+.save {
+  width: 100px;
+}
+
+.cancel {
+  color: $gray !important;
+}
+
+.button-container {
+  text-align: center;
+}

@@ -1,0 +1,43 @@
+@import "../../styles/main.scss";
+
+.signup {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.create-account-message {
+  text-transform: uppercase;
+  font-size: 20px;
+  font-family: 'Lato', sans-serif;
+  margin-bottom: 50px;
+  color: #558B2F;
+}
+
+.signup input {
+  font-size: 16px;
+  width: 275px;
+  height: 30px;
+  margin: 10px;
+  border: none;
+  border-bottom: gray solid 1px;
+  padding: 5px;
+}
+
+.confirm-password-error {
+  font-family: 'Lato', sans-serif;
+  color: $red;
+  display: block;
+}
+
+.signup-button {
+  border: none;
+  border-radius: 3px;
+  width: 290px;
+  height: 50px;
+  margin-top: 20px;
+  background-color: #8BC34A;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: white;
+  cursor: pointer;
+}

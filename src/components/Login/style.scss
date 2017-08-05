@@ -1,0 +1,43 @@
+@import "../../styles/main.scss";
+
+.login-form {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.login-message {
+  text-transform: uppercase;
+  font-size: 20px;
+  font-family: 'Lato', sans-serif;
+  margin-bottom: 50px;
+  color: #f44336;
+}
+
+.login-form input {
+  font-size: 16px;
+  width: 275px;
+  height: 30px;
+  margin: 10px;
+  border: none;
+  border-bottom: gray solid 1px;
+  padding: 5px;
+}
+
+.confirm-password-error {
+  font-family: 'Lato', sans-serif;
+  color: $red;
+  display: block;
+}
+
+.login-button {
+  border: none;
+  border-radius: 3px;
+  width: 290px;
+  height: 50px;
+  margin-top: 20px;
+  background-color: #f44336;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: white;
+  cursor: pointer;
+}

@@ -1,0 +1,101 @@
+.stream-tile {
+  width: 200px;
+  height: 200px;
+  margin: 5px;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.stream-tile:hover{
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+a {
+  text-decoration: none;
+}
+
+.stream-content {
+  padding-top: 25px;
+}
+
+.stream-name {
+  padding-top: 5px;
+  height: 75px;
+  font-size: 18px;
+}
+
+.dark-text {
+  color: black;
+}
+
+.light-text {
+  color: white;
+}
+
+.stream-time {
+  padding-top: 25px;
+  font-size: 14px;
+}
+
+.last-label {
+  font-size: 12px;
+  padding-right: 5px;
+}
+
+.last-entry {
+  padding-top: 10px;
+}
+
+.color-0 {
+  background-color: #B2EBF2;
+}
+.color-1 {
+  background-color: #80DEEA;
+}
+.color-2 {
+  background-color: #4DD0E1;
+}
+.color-3 {
+  background-color: #26C6DA;
+}
+.color-4 {
+  background-color: #00BCD4;
+}
+.color-5 {
+  background-color: #00ACC1;
+}
+.color-6 {
+  background-color: #0097A7;
+}
+.color-7 {
+  background-color: #00838F;
+}
+.color-8 {
+  background-color: #006064;
+}
+
+
+@media only screen and (max-width: 500px) {
+  .stream-tile {
+    width: 90%;
+    margin: 0 auto;
+    height: 100px;
+  }
+  .stream-content {
+    padding-top: 5px;
+  }
+  .stream-name {
+    padding-top: 5px;
+    height: 35px;
+    font-size: 24px;
+  }
+  .stream-time {
+    padding-top: 2px;
+    font-size: 14px;
+  }
+  .last-entry  p {
+    padding-top: 0px;
+    margin: 0px;
+  }
+}

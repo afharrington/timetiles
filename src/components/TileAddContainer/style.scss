@@ -1,0 +1,17 @@
+@import "../../styles/main.scss";
+
+.tile-add-container {
+  margin: 5px;
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 500px) {
+  .tile-add-container {
+    width: 90%;
+    margin: 0 auto;
+    height: 100px;
+    margin-bottom: 10px;
+  }
+}

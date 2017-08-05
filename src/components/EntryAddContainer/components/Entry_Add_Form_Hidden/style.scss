@@ -1,0 +1,22 @@
+@import "../../../../styles/main.scss";
+
+.entry-plus {
+  width: 75%;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.plus {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 72px;
+  margin: 0px;
+  padding: 0px;
+  color: $gray;
+  cursor: pointer;
+}
+
+.plus:hover {
+  color: #00BCD4;
+}

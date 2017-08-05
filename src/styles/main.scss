@@ -1,0 +1,25 @@
+@import "./partials/colors";
+@import "./partials/fonts";
+@import "./partials/shadows";
+
+body {
+  margin: 0px !important;
+  padding: 0px !important;
+  font-family: 'Lato', sans-serif;
+  color: $gray;
+}
+
+.container {
+  padding: 0px;
+  margin: 0px;
+}
+
+a { text-decoration: none !important}
+
+textarea {
+   background-color: transparent;
+}
+
+input {
+  background-color: transparent;
+}

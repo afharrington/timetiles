@@ -1,0 +1,35 @@
+@import "../../styles/main.scss";
+
+.nav {
+  height: 65px;
+  background-color: $gray;
+  box-shadow: $shadow;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.nav li {
+  font-family: 'Lato', sans-serif;
+  margin-left: 25px;
+  line-height: 65px;
+  display: inline;
+  list-style: none;
+  color: white;
+}
+
+.nav li:hover {
+  color: $color-0;
+}
+
+.nav a {
+  color: white
+}
+
+.nav a:hover {
+  color: #00BCD4;
+}
+
+.nav a.active {
+  color: #00BCD4;
+}
