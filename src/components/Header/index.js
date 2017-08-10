@@ -20,11 +20,15 @@ class Header extends Component {
           Welcome{', ' + localStorage.getItem('name')}!
         </li>
       )
-    } else {
+    } else if (this.props.name) {
       return (
         <li className="personal-greeting">
           Welcome{', ' + this.props.name)}!
         </li>
+      )
+    } else {
+      return (
+        <li></li>
       )
     }
   }
@@ -39,7 +43,7 @@ class Header extends Component {
         <li key={2}>
           <NavLink to="/goodbye">Logout</NavLink>
         </li>
-        {this.renderGreeting()}        
+        {this.renderGreeting()}
       ];
     // If not logged in, show links to log in or sign up for an account
     } else {
