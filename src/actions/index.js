@@ -13,8 +13,8 @@ export const AUTHORIZE_USER = "authorize_user";
 export const UNAUTHORIZE_USER = "unauthorize_user";
 export const AUTH_ERROR = "auth_error";
 
-const ROOT_URL = "https://tilesapi.herokuapp.com";
-// const ROOT_URL = "http://localhost:3000";
+// const ROOT_URL = "https://timetilesapi.herokuapp.com";
+const ROOT_URL = "http://localhost:3000";
 
 export function authorizeUser({email, password}, callback) {
   return function(dispatch) {
@@ -75,7 +75,6 @@ export function fetchTiles() {
 
 // Add a tile for the user by sending the user's token in the header
 export function createTile(values, callback) {
-  console.log('sending', values)
   return function(dispatch) {
     axios.post(ROOT_URL, values, {
       headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }

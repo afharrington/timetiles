@@ -44,7 +44,7 @@ class EntryAddForm extends React.Component {
   }
 
   // Converts time inputs to minutes and dispatches createEntry action creator
-  // with form values, then exits the form and re-fetches entries for the stream
+  // with form values, then exits the form and re-fetches entries for the tile
   onSubmit(values) {
     if (!values.minutes) {
       values.minutes = 0;
@@ -56,9 +56,9 @@ class EntryAddForm extends React.Component {
       minutes: Number(values.minutes) + Number(hoursInMinutes)
     };
     // dispatch createEntry then call onExit function to exit form
-    this.props.createEntry(formattedValues, this.props.streamId, () => {
+    this.props.createEntry(formattedValues, this.props.tileId, () => {
       this.props.onExit();
-      this.props.fetchEntries(this.props.streamId);
+      this.props.fetchEntries(this.props.tileId);
     });
   }
 

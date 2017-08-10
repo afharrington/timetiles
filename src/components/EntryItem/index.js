@@ -15,7 +15,6 @@ class EntryItem extends React.Component {
     let totalMinutes = this.props.minutes;
     let hours = Math.floor(totalMinutes / 60);
     let minutes = totalMinutes % 60;
-    console.log("hours", hours, "minutes", minutes);
     return (
       <div className="time">{hours} hrs {minutes} min</div>
     )

@@ -26,7 +26,7 @@ class EntryAddContainer extends React.Component {
 
   render() {
     let display = this.state.formVisible ?
-      <EntryAddForm onExit={this.handleExitForm} streamId={this.props.streamId}/>
+      <EntryAddForm onExit={this.handleExitForm} tileId={this.props.tileId}/>
     : <EntryAddFormHidden onClick={this.handleClick}/>;
 
     return (
