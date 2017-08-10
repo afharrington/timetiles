@@ -13,6 +13,22 @@ import "./style.scss";
 
 class Header extends Component {
 
+  renderGreeting() {
+    if (localStorage.getItem('name') {
+      return (
+        <li className="personal-greeting">
+          Welcome{', ' + localStorage.getItem('name')}!
+        </li>
+      )
+    } else {
+      return (
+        <li className="personal-greeting">
+          Welcome{', ' + this.props.name)}!
+        </li>
+      )
+    }
+  }
+
   // If logged in, show a link to the app home (tiles) page and log out
   renderLinks() {
     if (this.props.authenticated) {
@@ -22,10 +38,8 @@ class Header extends Component {
         </li>,
         <li key={2}>
           <NavLink to="/goodbye">Logout</NavLink>
-        </li>,
-        <li key={3} className="personal-greeting">
-         Welcome{', ' + localStorage.getItem('name')}!
         </li>
+        {this.renderGreeting()}        
       ];
     // If not logged in, show links to log in or sign up for an account
     } else {
