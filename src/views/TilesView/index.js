@@ -18,6 +18,7 @@ class TilesView extends Component {
   }
 
   renderTiles() {
+    console.log(this.props.tiles);
     // If there is at least one entry, passes that date as a prop to the tile,
     // else sends an empty string
     return _.map(this.props.tiles, tile => {

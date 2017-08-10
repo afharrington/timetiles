@@ -19,7 +19,7 @@ class App extends Component {
       <div>
         <Header />
         <Switch>
-          <Route path="/app/:streamId" component={EntriesView}/>
+          <Route path="/app/:tileId" component={EntriesView}/>
           <Route path="/app" component={Authentication(TilesView)}/>
           <Route path="/signup" component={Signup}/>
           <Route path="/login" component={Login}/>
