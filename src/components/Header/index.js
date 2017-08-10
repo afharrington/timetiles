@@ -24,7 +24,7 @@ class Header extends Component {
           <NavLink to="/goodbye">Logout</NavLink>
         </li>,
         <li key={3} className="personal-greeting">
-         Welcome{', ' + this.props.name}!
+         Welcome{', ' + localStorage.getItem('name')}!
         </li>
       ];
     // If not logged in, show links to log in or sign up for an account

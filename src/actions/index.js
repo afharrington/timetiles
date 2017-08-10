@@ -25,6 +25,7 @@ export function authorizeUser({email, password}, callback) {
         // Update state to indicate user is authenticated
         dispatch({ type: AUTHORIZE_USER, payload: response.data.name });
         localStorage.setItem('token', response.data.token);
+        localStorage.setItem('name', response.data.name);
       })
       // Callback pushes user to the app route
       .then(() => callback())
@@ -47,6 +48,7 @@ export function signupUser({name, email, password}, callback) {
         // Update state to indicate user is authenticated and save token
         dispatch({ type: AUTHORIZE_USER, payload: response.data.name });
         localStorage.setItem('token', response.data.token);
+        localStorage.setItem('token', response.data.name);
       })
         // Callback pushes user to the app route
       .then(() => callback())
