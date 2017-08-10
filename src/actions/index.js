@@ -13,8 +13,8 @@ export const AUTHORIZE_USER = "authorize_user";
 export const UNAUTHORIZE_USER = "unauthorize_user";
 export const AUTH_ERROR = "auth_error";
 
-// const ROOT_URL = "https://timetilesapi.herokuapp.com";
-const ROOT_URL = "http://localhost:3000";
+const ROOT_URL = "https://timetilesapi.herokuapp.com";
+// const ROOT_URL = "http://localhost:3000";
 
 export function authorizeUser({email, password}, callback) {
   return function(dispatch) {
@@ -45,7 +45,7 @@ export function signupUser({name, email, password}, callback) {
       // If request is successful...
       .then((response) => {
         // Update state to indicate user is authenticated and save token
-        dispatch({ type: AUTHORIZE_USER });
+        dispatch({ type: AUTHORIZE_USER, payload: response.data.name });
         localStorage.setItem('token', response.data.token);
       })
         // Callback pushes user to the app route
