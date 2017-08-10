@@ -6715,7 +6715,7 @@ var AUTHORIZE_USER = exports.AUTHORIZE_USER = "authorize_user";
 var UNAUTHORIZE_USER = exports.UNAUTHORIZE_USER = "unauthorize_user";
 var AUTH_ERROR = exports.AUTH_ERROR = "auth_error";
 
-var ROOT_URL = "https://timetilesnewapi.herokuapp.com";
+var ROOT_URL = "https://timetilesapi.herokuapp.com";
 // const ROOT_URL = "http://localhost:3000";
 
 function authorizeUser(_ref, callback) {
@@ -70330,7 +70330,7 @@ var App = function (_Component) {
         _react2.default.createElement(
           _reactRouterDom.Switch,
           null,
-          _react2.default.createElement(_reactRouterDom.Route, { path: "/app/:streamId", component: _EntriesView2.default }),
+          _react2.default.createElement(_reactRouterDom.Route, { path: "/app/:tileId", component: _EntriesView2.default }),
           _react2.default.createElement(_reactRouterDom.Route, { path: "/app", component: (0, _Authentication2.default)(_TilesView2.default) }),
           _react2.default.createElement(_reactRouterDom.Route, { path: "/signup", component: _Signup2.default }),
           _react2.default.createElement(_reactRouterDom.Route, { path: "/login", component: _Login2.default }),
@@ -70425,7 +70425,7 @@ var Header = function (_Component) {
           )
         ), _react2.default.createElement(
           'li',
-          null,
+          { key: 2 },
           _react2.default.createElement(
             _reactRouterDom.NavLink,
             { to: '/goodbye' },
@@ -70436,7 +70436,7 @@ var Header = function (_Component) {
       } else {
         return [_react2.default.createElement(
           'li',
-          null,
+          { key: 1 },
           _react2.default.createElement(
             _reactRouterDom.NavLink,
             { to: '/' },
@@ -70444,7 +70444,7 @@ var Header = function (_Component) {
           )
         ), _react2.default.createElement(
           'li',
-          { key: 1 },
+          { key: 2 },
           _react2.default.createElement(
             _reactRouterDom.NavLink,
             { to: '/login' },
@@ -70452,7 +70452,7 @@ var Header = function (_Component) {
           )
         ), _react2.default.createElement(
           'li',
-          { className: 'nav-item', key: 2 },
+          { className: 'nav-item', key: 3 },
           _react2.default.createElement(
             _reactRouterDom.NavLink,
             { to: '/signup' },
@@ -72415,7 +72415,7 @@ var EntryAddContainer = function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var display = this.state.formVisible ? _react2.default.createElement(_Entry_Add_Form2.default, { onExit: this.handleExitForm, streamId: this.props.streamId }) : _react2.default.createElement(_Entry_Add_Form_Hidden2.default, { onClick: this.handleClick });
+      var display = this.state.formVisible ? _react2.default.createElement(_Entry_Add_Form2.default, { onExit: this.handleExitForm, tileId: this.props.tileId }) : _react2.default.createElement(_Entry_Add_Form_Hidden2.default, { onClick: this.handleClick });
 
       return _react2.default.createElement(
         "div",
@@ -72698,7 +72698,7 @@ var EntryAddForm = function (_React$Component) {
     }
 
     // Converts time inputs to minutes and dispatches createEntry action creator
-    // with form values, then exits the form and re-fetches entries for the stream
+    // with form values, then exits the form and re-fetches entries for the tile
 
   }, {
     key: "onSubmit",
@@ -72715,9 +72715,9 @@ var EntryAddForm = function (_React$Component) {
         minutes: Number(values.minutes) + Number(hoursInMinutes)
       };
       // dispatch createEntry then call onExit function to exit form
-      this.props.createEntry(formattedValues, this.props.streamId, function () {
+      this.props.createEntry(formattedValues, this.props.tileId, function () {
         _this2.props.onExit();
-        _this2.props.fetchEntries(_this2.props.streamId);
+        _this2.props.fetchEntries(_this2.props.tileId);
       });
     }
   }, {
@@ -81223,7 +81223,6 @@ var EntryItem = function (_React$Component) {
       var totalMinutes = this.props.minutes;
       var hours = Math.floor(totalMinutes / 60);
       var minutes = totalMinutes % 60;
-      console.log("hours", hours, "minutes", minutes);
       return _react2.default.createElement(
         "div",
         { className: "time" },

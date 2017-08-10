@@ -7,13 +7,14 @@
   text-align: center;
   align-items: center;
   justify-content: center;
-  color: black;
+  color: $gray;
   cursor: pointer;
 }
 
 .tile-form-plus {
   font-size: 80px;
   font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
 }
 
 .tile-form-plus:hover {

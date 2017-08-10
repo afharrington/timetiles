@@ -9,7 +9,7 @@
   padding: 10px;
   cursor: pointer;
   text-align: center;
-  font-family: 'Lato', sans-serif;
+  font-family: $main-font;
   box-shadow: $shadow;
 }
 
@@ -44,19 +44,19 @@
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  font-family: 'Lato', sans-serif;
+  font-family: $main-font;
   font-size: 18px;
 }
 ::-moz-placeholder { /* Firefox 19+ */
-  font-family: 'Lato', sans-serif;
+  font-family: $main-font;
   font-size: 18px;
 }
 :-ms-input-placeholder { /* IE 10+ */
-  font-family: 'Lato', sans-serif;
+  font-family: $main-font;
   font-size: 18px;
 }
 :-moz-placeholder { /* Firefox 18- */
-  font-family: 'Lato', sans-serif;
+  font-family: $main-font;
   font-size: 18px;
 }
 

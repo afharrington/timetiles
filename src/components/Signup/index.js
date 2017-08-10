@@ -46,9 +46,17 @@ class Signup extends Component {
         <div className="create-account-message">Create an account</div>
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <Field
+            label="Name"
+            name="name"
+            placeholder="Name"
+            styleclass="name-field"
+            component={this.renderField}
+            type="text"
+          />
+          <Field
             label="Email"
             name="email"
-            placeholder="Enter your email"
+            placeholder="Email"
             styleclass="email-field"
             component={this.renderField}
             type="text"
@@ -81,6 +89,8 @@ function validate(values) {
     const errors = {};
     if (!values.email) {
       errors.email = "Enter your email";
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+        errors.email = 'Invalid email format'
     }
     if (!values.password) {
       errors.password = "Enter a password";

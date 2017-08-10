@@ -4,7 +4,7 @@
   margin-left: 75px;
   margin-top: 100px;
   font-size: 24px;
-  font-family: 'Lato', sans-serif;
+  font-family: $main-font;
 }
 
 // CSS TRANSITION ANIMATION
@@ -30,15 +30,15 @@
 }
 
 .tile-name {
-  font-family: 'Lato', sans-serif;
-  font-size: 18px;
+  font-family: $main-font;
+  font-size: 24px;
   margin-bottom: 20px;
   color: $gray;
 }
 
 .entry-list-container {
   text-align: center;
-  font-family: 'Lato', sans-serif !important;
+  font-family: $main-font, sans-serif !important;
 }
 
 .back {
@@ -57,7 +57,7 @@
 
 .total-time {
   text-align: center;
-  font-family: 'Quicksand', sans-serif;
+  font-family: $main-font, sans-serif;
   font-size: 42px;
   color: $gray;
 }

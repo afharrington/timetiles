@@ -22,6 +22,9 @@ class Header extends Component {
         </li>,
         <li key={2}>
           <NavLink to="/goodbye">Logout</NavLink>
+        </li>,
+        <li key={3} className="personal-greeting">
+         Welcome{', ' + this.props.name}!
         </li>
       ];
     // If not logged in, show links to log in or sign up for an account
@@ -57,7 +60,8 @@ class Header extends Component {
 
 function mapStateToProps(state) {
   return {
-    authenticated: state.auth.authenticated
+    authenticated: state.auth.authenticated,
+    name: state.auth.name
   };
 }
 

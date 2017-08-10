@@ -1,9 +1,10 @@
 @import "../../../../styles/main.scss";
 
 .text-field {
+  font-family: $tile-font;
   height: 25px;
   width: 90%;
-  margin-top: 50px;
+  margin-top: 25px;
   font-size: 14px;
   text-align: center;
 }

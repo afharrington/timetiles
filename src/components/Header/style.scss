@@ -10,20 +10,21 @@
 }
 
 .nav li {
-  font-family: 'Lato', sans-serif;
   margin-left: 25px;
-  line-height: 65px;
   display: inline;
   list-style: none;
   color: white;
+  font-size: 18px;
 }
 
-.nav li:hover {
+.nav a:hover {
   color: $color-0;
 }
 
 .nav a {
-  color: white
+  font-family: $main-font;
+  color: white;
+  line-height: 65px;
 }
 
 .nav a:hover {
@@ -32,4 +33,16 @@
 
 .nav a.active {
   color: #00BCD4;
+}
+
+.personal-greeting {
+  position: absolute;
+  line-height: 65px;
+  right: 5%;
+}
+
+@media screen and (max-width: 425px) {
+  .nav li {
+    font-size: 14px;
+  }
 }

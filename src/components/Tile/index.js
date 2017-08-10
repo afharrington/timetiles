@@ -30,7 +30,7 @@ class StreamTile extends React.Component {
   renderLastEntry() {
     let lastEntryText = this.props.lastEntry == "" ?
       <div></div>
-    : <p><span className="last-label">LAST:</span><Moment className="stream-time" format="ll">{this.props.lastEntry}</Moment></p>
+    : <p><span className="last-label"></span><Moment className="stream-time" format="ll">{this.props.lastEntry}</Moment></p>
 
     let textClassName = `last-entry ${this.state.textColor}`
     return (
@@ -42,12 +42,14 @@ class StreamTile extends React.Component {
 
   render() {
     let tileClassName = `stream-tile color-${this.state.color}`;
-    let textClassName = `stream-name ${this.state.textColor}`;
+    // let textClassName = `stream-name ${this.state.textColor}`;
 
     return (
       <div className={tileClassName}>
         <div className="stream-content">
-          <div className={textClassName}>{this.props.name}</div>
+          <div className="stream-name">
+            <p>{this.props.name}</p>
+          </div>
           {this.renderTime()}
           {this.renderLastEntry()}
         </div>

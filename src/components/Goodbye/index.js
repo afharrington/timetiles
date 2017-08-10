@@ -14,10 +14,16 @@ class Goodbye extends Component {
   render() {
     return (
       <div className="goodbye">
-        Goodbye! See you next time.
+        Goodbye, {this.props.name}! See you next time.
       </div>
     )
   }
 }
 
-export default connect(null, { unauthorizeUser })(Goodbye);
+function mapStateToProps(state) {
+  return {
+    name: state.auth.name
+  };
+}
+
+export default connect(mapStateToProps, { unauthorizeUser })(Goodbye);
