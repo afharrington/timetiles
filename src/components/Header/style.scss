@@ -36,6 +36,10 @@
 }
 
 .personal-greeting {
+  p {
+    margin: 0;
+    padding: 0;
+  }
   position: absolute;
   line-height: 65px;
   right: 5%;

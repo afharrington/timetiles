@@ -72,7 +72,7 @@ class EntriesView extends Component {
       return (
           <EntryItem
             key={entry._id}
-            date={entry.created_date.date}
+            date={entry.created_date}
             content={entry.content}
             minutes={entry.minutes}
             onClick={this.deleteEntry.bind(this, entry._id)}
