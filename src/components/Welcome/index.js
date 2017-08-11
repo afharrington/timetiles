@@ -8,11 +8,18 @@ class Welcome extends Component {
     return (
       <div className="welcome">
         <div className="brand">
-          <img className="logo" src="../../../img/Logo.png" alt="logo"/>
+          <div className="logo-container">
+            <img className="logo" src="../../../img/Logo.png" alt="logo"/>
+          </div>
           <h1>TimeTiles</h1>
         </div>
-        <div className="tagline">Track the time you spend toward your goals</div>
-        <Link to="/signup"><div className="signup-link">Sign up</div></Link>
+        <div className="tagline">
+          <p>Track the time you spend toward your goals</p>
+        </div>
+        <div className="signup-link">
+          <Link to="/signup">Sign up
+          </Link>
+        </div>
       </div>
     )
   }
