@@ -6715,8 +6715,8 @@ var AUTHORIZE_USER = exports.AUTHORIZE_USER = "authorize_user";
 var UNAUTHORIZE_USER = exports.UNAUTHORIZE_USER = "unauthorize_user";
 var AUTH_ERROR = exports.AUTH_ERROR = "auth_error";
 
-var ROOT_URL = "https://timetilesapi.herokuapp.com";
-// const ROOT_URL = "http://localhost:3000";
+// const ROOT_URL = "https://timetilesapi.herokuapp.com";
+var ROOT_URL = "http://localhost:3000";
 
 function authorizeUser(_ref, callback) {
   var email = _ref.email,
@@ -82867,7 +82867,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, "body {\n  margin: 0px !important;\n  padding: 0px !important;\n  font-family: \"Work Sans\", sans-serif;\n  color: #263238; }\n\n.container {\n  padding: 0px;\n  margin: 0px;\n  overflow: auto; }\n\na {\n  text-decoration: none !important; }\n\ntextarea {\n  background-color: transparent; }\n\ninput {\n  background-color: transparent; }\n\n.tiles-view {\n  height: 100vh;\n  text-align: center; }\n\n.tiles-message {\n  margin-top: 25px;\n  font-size: 24px; }\n\n.tiles-grid {\n  display: grid;\n  margin: 10px;\n  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));\n  grid-auto-rows: 150px;\n  grid-gap: 5px; }\n\n@media only screen and (max-width: 500px) {\n  .tiles-grid {\n    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));\n    grid-auto-rows: 100px;\n    grid-gap: 5px; } }\n", ""]);
+exports.push([module.i, "body {\n  margin: 0px !important;\n  padding: 0px !important;\n  font-family: \"Work Sans\", sans-serif;\n  color: #263238; }\n\n.container {\n  padding: 0px;\n  margin: 0px;\n  overflow: auto; }\n\na {\n  text-decoration: none !important; }\n\ntextarea {\n  background-color: transparent; }\n\ninput {\n  background-color: transparent; }\n\n.tiles-view {\n  height: 100vh;\n  text-align: center; }\n\n.tiles-message {\n  margin-top: 25px;\n  font-size: 24px; }\n\n.tiles-grid {\n  display: grid;\n  margin: 10px;\n  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));\n  grid-auto-rows: 150px;\n  grid-gap: 5px; }\n\n@media only screen and (max-width: 500px) {\n  .tiles-grid {\n    margin-top: 50px;\n    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));\n    grid-auto-rows: 150px;\n    grid-gap: 5px; } }\n", ""]);
 
 // exports
 
