@@ -6715,8 +6715,8 @@ var AUTHORIZE_USER = exports.AUTHORIZE_USER = "authorize_user";
 var UNAUTHORIZE_USER = exports.UNAUTHORIZE_USER = "unauthorize_user";
 var AUTH_ERROR = exports.AUTH_ERROR = "auth_error";
 
-// const ROOT_URL = "https://timetilesapi.herokuapp.com";
-var ROOT_URL = "http://localhost:3000";
+var ROOT_URL = "https://timetilesapi.herokuapp.com";
+// const ROOT_URL = "http://localhost:3000";
 
 function authorizeUser(_ref, callback) {
   var email = _ref.email,
@@ -6730,6 +6730,7 @@ function authorizeUser(_ref, callback) {
       // Update state to indicate user is authenticated
       dispatch({ type: AUTHORIZE_USER, payload: response.data.name });
       localStorage.setItem('token', response.data.token);
+      localStorage.setItem('name', response.data.name);
     })
     // Callback pushes user to the app route
     .then(function () {
@@ -6757,6 +6758,7 @@ function signupUser(_ref2, callback) {
       // Update state to indicate user is authenticated and save token
       dispatch({ type: AUTHORIZE_USER, payload: response.data.name });
       localStorage.setItem('token', response.data.token);
+      localStorage.setItem('token', response.data.name);
     })
     // Callback pushes user to the app route
     .then(function () {
@@ -33997,6 +33999,7 @@ var EntriesView = function (_Component) {
       return entries.map(function (entry) {
         return _react2.default.createElement(_EntryItem2.default, {
           key: entry._id,
+          date: entry.created_date,
           content: entry.content,
           minutes: entry.minutes,
           onClick: _this4.deleteEntry.bind(_this4, entry._id)
@@ -48047,8 +48050,8 @@ var Goodbye = function (_Component) {
   }
 
   _createClass(Goodbye, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
       this.props.unauthorizeUser();
     }
   }, {
@@ -70428,10 +70431,25 @@ var Header = function (_Component) {
   }
 
   _createClass(Header, [{
-    key: 'renderLinks',
+    key: 'renderGreeting',
 
+
+    // Get name from local storage if it exists 
+    value: function renderGreeting() {
+      var name = localStorage.getItem('name') || this.props.name;
+      return _react2.default.createElement(
+        'p',
+        null,
+        'Welcome',
+        ', ' + name,
+        '!'
+      );
+    }
 
     // If logged in, show a link to the app home (tiles) page and log out
+
+  }, {
+    key: 'renderLinks',
     value: function renderLinks() {
       if (this.props.authenticated) {
         return [_react2.default.createElement(
@@ -70453,9 +70471,7 @@ var Header = function (_Component) {
         ), _react2.default.createElement(
           'li',
           { key: 3, className: 'personal-greeting' },
-          'Welcome',
-          ', ' + this.props.name,
-          '!'
+          this.renderGreeting()
         )];
         // If not logged in, show links to log in or sign up for an account
       } else {
@@ -72529,7 +72545,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, "body {\n  margin: 0px !important;\n  padding: 0px !important;\n  font-family: \"Work Sans\", sans-serif;\n  color: #263238; }\n\n.container {\n  padding: 0px;\n  margin: 0px; }\n\na {\n  text-decoration: none !important; }\n\ntextarea {\n  background-color: transparent; }\n\ninput {\n  background-color: transparent; }\n\n.entry-plus {\n  width: 75%;\n  margin: 0 auto;\n  text-align: center;\n  margin-top: 10px;\n  padding: 10px; }\n\n.plus {\n  font-family: 'Montserrat', sans-serif;\n  font-weight: 300;\n  font-size: 80px;\n  margin: 0px;\n  padding: 0px;\n  color: #263238;\n  cursor: pointer; }\n\n.plus:hover {\n  color: #00BCD4; }\n", ""]);
+exports.push([module.i, "body {\n  margin: 0px !important;\n  padding: 0px !important;\n  font-family: \"Work Sans\", sans-serif;\n  color: #263238; }\n\n.container {\n  padding: 0px;\n  margin: 0px;\n  overflow: auto; }\n\na {\n  text-decoration: none !important; }\n\ntextarea {\n  background-color: transparent; }\n\ninput {\n  background-color: transparent; }\n\n.entry-plus {\n  width: 75%;\n  margin: 0 auto;\n  text-align: center;\n  margin-top: 10px;\n  padding: 10px; }\n\n.plus {\n  font-family: 'Montserrat', sans-serif;\n  font-weight: 300;\n  font-size: 80px;\n  margin: 0px;\n  padding: 0px;\n  color: #263238;\n  cursor: pointer; }\n\n.plus:hover {\n  color: #00BCD4; }\n", ""]);
 
 // exports
 
@@ -81135,7 +81151,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, "body {\n  margin: 0px !important;\n  padding: 0px !important;\n  font-family: \"Work Sans\", sans-serif;\n  color: #263238; }\n\n.container {\n  padding: 0px;\n  margin: 0px; }\n\na {\n  text-decoration: none !important; }\n\ntextarea {\n  background-color: transparent; }\n\ninput {\n  background-color: transparent; }\n", ""]);
+exports.push([module.i, "body {\n  margin: 0px !important;\n  padding: 0px !important;\n  font-family: \"Work Sans\", sans-serif;\n  color: #263238; }\n\n.container {\n  padding: 0px;\n  margin: 0px;\n  overflow: auto; }\n\na {\n  text-decoration: none !important; }\n\ntextarea {\n  background-color: transparent; }\n\ninput {\n  background-color: transparent; }\n", ""]);
 
 // exports
 
@@ -81180,7 +81196,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, "body {\n  margin: 0px !important;\n  padding: 0px !important;\n  font-family: \"Work Sans\", sans-serif;\n  color: #263238; }\n\n.container {\n  padding: 0px;\n  margin: 0px; }\n\na {\n  text-decoration: none !important; }\n\ntextarea {\n  background-color: transparent; }\n\ninput {\n  background-color: transparent; }\n\n.entry-add-form {\n  background-color: white;\n  width: 75%;\n  margin: 0 auto;\n  color: black;\n  margin-top: 10px;\n  padding: 10px;\n  cursor: pointer;\n  text-align: center;\n  font-family: \"Work Sans\", sans-serif;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }\n\n.cancel {\n  display: inline-block;\n  margin-left: 75%;\n  color: #b71c1c;\n  font-size: 12px; }\n\n.field-container {\n  display: inline; }\n\n.details {\n  text-align: left;\n  display: block;\n  width: 100%;\n  height: 50px;\n  font-size: 16px;\n  font-weight: 300; }\n\n.text-box textarea {\n  resize: none;\n  box-sizing: border-box;\n  padding: 10px;\n  border-color: #B0BEC5;\n  border-left: none;\n  border-top: none;\n  border-right: none; }\n\n::-webkit-input-placeholder {\n  /* Chrome/Opera/Safari */\n  font-family: \"Work Sans\", sans-serif;\n  font-size: 18px; }\n\n::-moz-placeholder {\n  /* Firefox 19+ */\n  font-family: \"Work Sans\", sans-serif;\n  font-size: 18px; }\n\n:-ms-input-placeholder {\n  /* IE 10+ */\n  font-family: \"Work Sans\", sans-serif;\n  font-size: 18px; }\n\n:-moz-placeholder {\n  /* Firefox 18- */\n  font-family: \"Work Sans\", sans-serif;\n  font-size: 18px; }\n\n.hours, .min {\n  width: 50px;\n  margin-top: 30px;\n  text-align: center;\n  font-size: 14px;\n  border: 1px solid #B0BEC5;\n  border-left: none;\n  border-top: none;\n  border-right: none; }\n\n.save {\n  width: 100px; }\n\n.cancel {\n  color: #263238 !important; }\n\n.button-container {\n  text-align: center; }\n", ""]);
+exports.push([module.i, "body {\n  margin: 0px !important;\n  padding: 0px !important;\n  font-family: \"Work Sans\", sans-serif;\n  color: #263238; }\n\n.container {\n  padding: 0px;\n  margin: 0px;\n  overflow: auto; }\n\na {\n  text-decoration: none !important; }\n\ntextarea {\n  background-color: transparent; }\n\ninput {\n  background-color: transparent; }\n\n.entry-add-form {\n  background-color: white;\n  width: 75%;\n  margin: 0 auto;\n  color: black;\n  margin-top: 10px;\n  padding: 10px;\n  cursor: pointer;\n  text-align: center;\n  font-family: \"Work Sans\", sans-serif;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }\n\n.cancel {\n  display: inline-block;\n  margin-left: 75%;\n  color: #b71c1c;\n  font-size: 12px; }\n\n.field-container {\n  display: inline; }\n\n.details {\n  text-align: left;\n  display: block;\n  width: 100%;\n  height: 50px;\n  font-size: 16px;\n  font-weight: 300; }\n\n.text-box textarea {\n  resize: none;\n  box-sizing: border-box;\n  padding: 10px;\n  border-color: #B0BEC5;\n  border-left: none;\n  border-top: none;\n  border-right: none; }\n\n::-webkit-input-placeholder {\n  /* Chrome/Opera/Safari */\n  font-family: \"Work Sans\", sans-serif;\n  font-size: 18px; }\n\n::-moz-placeholder {\n  /* Firefox 19+ */\n  font-family: \"Work Sans\", sans-serif;\n  font-size: 18px; }\n\n:-ms-input-placeholder {\n  /* IE 10+ */\n  font-family: \"Work Sans\", sans-serif;\n  font-size: 18px; }\n\n:-moz-placeholder {\n  /* Firefox 18- */\n  font-family: \"Work Sans\", sans-serif;\n  font-size: 18px; }\n\n.hours, .min {\n  width: 50px;\n  margin-top: 30px;\n  text-align: center;\n  font-size: 14px;\n  border: 1px solid #B0BEC5;\n  border-left: none;\n  border-top: none;\n  border-right: none; }\n\n.save {\n  width: 100px; }\n\n.cancel {\n  color: #263238 !important; }\n\n.button-container {\n  text-align: center; }\n", ""]);
 
 // exports
 
@@ -82208,7 +82224,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, "body {\n  margin: 0px !important;\n  padding: 0px !important;\n  font-family: \"Work Sans\", sans-serif;\n  color: #263238; }\n\n.container {\n  padding: 0px;\n  margin: 0px; }\n\na {\n  text-decoration: none !important; }\n\ntextarea {\n  background-color: transparent; }\n\ninput {\n  background-color: transparent; }\n\n.entry {\n  width: 75%;\n  margin: 0 auto;\n  text-align: left;\n  margin-top: 10px;\n  padding: 10px;\n  background-color: white;\n  border-bottom: 6px solid #00BCD4;\n  font-size: 18px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n\n.date {\n  position: absolute;\n  display: inline-block;\n  padding-bottom: 10px;\n  font-size: 14px;\n  color: #263238; }\n\n.time {\n  margin: 0px;\n  display: inline-block;\n  font-size: 14px;\n  color: #263238; }\n\n.entry-content {\n  display: block;\n  margin-top: 25px;\n  margin-bottom: 10px;\n  color: #263238; }\n\n.delete {\n  position: absolute;\n  display: inline-block;\n  right: 15%;\n  color: #263238;\n  font-size: 14px;\n  margin-top: 0px;\n  margin-bottom: 0px;\n  padding-left: 10px;\n  cursor: pointer; }\n", ""]);
+exports.push([module.i, "body {\n  margin: 0px !important;\n  padding: 0px !important;\n  font-family: \"Work Sans\", sans-serif;\n  color: #263238; }\n\n.container {\n  padding: 0px;\n  margin: 0px;\n  overflow: auto; }\n\na {\n  text-decoration: none !important; }\n\ntextarea {\n  background-color: transparent; }\n\ninput {\n  background-color: transparent; }\n\n.entry {\n  width: 75%;\n  margin: 0 auto;\n  text-align: left;\n  margin-top: 10px;\n  padding: 10px;\n  background-color: white;\n  border-bottom: 6px solid #00BCD4;\n  font-size: 18px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }\n\n.date {\n  position: absolute;\n  display: inline-block;\n  padding-bottom: 10px;\n  font-size: 14px;\n  color: #263238; }\n\n.time {\n  margin: 0px;\n  display: inline-block;\n  font-size: 14px;\n  color: #263238; }\n\n.entry-content {\n  display: block;\n  margin-top: 25px;\n  margin-bottom: 10px;\n  color: #263238; }\n\n.delete {\n  position: absolute;\n  display: inline-block;\n  right: 15%;\n  color: #263238;\n  font-size: 14px;\n  margin-top: 0px;\n  margin-bottom: 0px;\n  padding-left: 10px;\n  cursor: pointer; }\n", ""]);
 
 // exports
 
@@ -82253,7 +82269,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, "body {\n  margin: 0px !important;\n  padding: 0px !important;\n  font-family: \"Work Sans\", sans-serif;\n  color: #263238; }\n\n.container {\n  padding: 0px;\n  margin: 0px; }\n\na {\n  text-decoration: none !important; }\n\ntextarea {\n  background-color: transparent; }\n\ninput {\n  background-color: transparent; }\n\n.nothing-here {\n  margin-left: 75px;\n  margin-top: 100px;\n  font-size: 24px;\n  font-family: \"Work Sans\", sans-serif; }\n\n.example-enter {\n  opacity: 0.0; }\n\n.example-enter.example-enter-active {\n  opacity: 1;\n  transition: opacity 1000ms ease-in; }\n\n.example-leave {\n  opacity: 1; }\n\n.example-leave.example-leave-active {\n  opacity: 0.0;\n  transition: opacity 1000ms ease-in; }\n\n.entries-view {\n  height: 100vh;\n  color: white; }\n\n.tile-name {\n  font-family: \"Work Sans\", sans-serif;\n  font-size: 24px;\n  margin-bottom: 20px;\n  color: #263238; }\n\n.entry-list-container {\n  text-align: center;\n  font-family: \"Work Sans\", sans-serif, sans-serif !important; }\n\n.back {\n  display: inline;\n  font-size: 24px;\n  margin-left: 5%;\n  color: #263238 !important;\n  cursor: pointer; }\n\n.entries-container {\n  margin-top: 0px;\n  color: white;\n  font-size: 18px; }\n\n.total-time {\n  text-align: center;\n  font-family: \"Work Sans\", sans-serif, sans-serif;\n  font-size: 42px;\n  color: #263238; }\n\n.delete-stream {\n  width: 100px;\n  height: 22px;\n  margin: 0 auto;\n  font-size: 14px;\n  font-weight: bold;\n  color: #b71c1c;\n  margin-top: 25px;\n  cursor: pointer; }\n\n.color-0 {\n  background-color: #B2EBF2; }\n\n.color-1 {\n  background-color: #80DEEA; }\n\n.color-2 {\n  background-color: #4DD0E1; }\n\n.color-3 {\n  background-color: #26C6DA; }\n\n.color-4 {\n  background-color: #00BCD4; }\n\n.color-5 {\n  background-color: #00ACC1; }\n\n.color-6 {\n  background-color: #0097A7; }\n\n.color-7 {\n  background-color: #00838F; }\n\n.color-8 {\n  background-color: #006064; }\n\n.dark-text {\n  color: #263238; }\n\n.light-text {\n  color: white; }\n", ""]);
+exports.push([module.i, "body {\n  margin: 0px !important;\n  padding: 0px !important;\n  font-family: \"Work Sans\", sans-serif;\n  color: #263238; }\n\n.container {\n  padding: 0px;\n  margin: 0px;\n  overflow: auto; }\n\na {\n  text-decoration: none !important; }\n\ntextarea {\n  background-color: transparent; }\n\ninput {\n  background-color: transparent; }\n\n.nothing-here {\n  margin-left: 75px;\n  margin-top: 100px;\n  font-size: 24px;\n  font-family: \"Work Sans\", sans-serif; }\n\n.example-enter {\n  opacity: 0.0; }\n\n.example-enter.example-enter-active {\n  opacity: 1;\n  transition: opacity 1000ms ease-in; }\n\n.example-leave {\n  opacity: 1; }\n\n.example-leave.example-leave-active {\n  opacity: 0.0;\n  transition: opacity 1000ms ease-in; }\n\n.entries-view {\n  height: 100vh;\n  color: white; }\n\n.tile-name {\n  font-family: \"Work Sans\", sans-serif;\n  font-size: 24px;\n  margin-bottom: 20px;\n  color: #263238; }\n\n.entry-list-container {\n  text-align: center;\n  font-family: \"Work Sans\", sans-serif, sans-serif !important; }\n\n.back {\n  display: inline;\n  font-size: 24px;\n  margin-left: 5%;\n  color: #263238 !important;\n  cursor: pointer; }\n\n.entries-container {\n  margin-top: 0px;\n  color: white;\n  font-size: 18px; }\n\n.total-time {\n  text-align: center;\n  font-family: \"Work Sans\", sans-serif, sans-serif;\n  font-size: 42px;\n  color: #263238; }\n\n.delete-stream {\n  width: 100px;\n  height: 22px;\n  margin: 0 auto;\n  font-size: 14px;\n  font-weight: bold;\n  color: #b71c1c;\n  margin-top: 25px;\n  cursor: pointer; }\n\n.delete-tile {\n  color: #b71c1c !important; }\n\n.color-0 {\n  background-color: #B2EBF2; }\n\n.color-1 {\n  background-color: #80DEEA; }\n\n.color-2 {\n  background-color: #4DD0E1; }\n\n.color-3 {\n  background-color: #26C6DA; }\n\n.color-4 {\n  background-color: #00BCD4; }\n\n.color-5 {\n  background-color: #00ACC1; }\n\n.color-6 {\n  background-color: #0097A7; }\n\n.color-7 {\n  background-color: #00838F; }\n\n.color-8 {\n  background-color: #006064; }\n\n.dark-text {\n  color: #263238; }\n\n.light-text {\n  color: white; }\n", ""]);
 
 // exports
 
@@ -82515,7 +82531,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, "body {\n  margin: 0px !important;\n  padding: 0px !important;\n  font-family: \"Work Sans\", sans-serif;\n  color: #263238; }\n\n.container {\n  padding: 0px;\n  margin: 0px; }\n\na {\n  text-decoration: none !important; }\n\ntextarea {\n  background-color: transparent; }\n\ninput {\n  background-color: transparent; }\n\n.text-field {\n  font-family: \"Work Sans\", sans-serif;\n  height: 25px;\n  width: 90%;\n  margin-top: 25px;\n  font-size: 14px;\n  text-align: center; }\n\n.field-container input {\n  border: none;\n  border-bottom: #263238 solid 1px; }\n\n.tile-form-exit {\n  font-size: 16px;\n  text-align: right;\n  color: black;\n  cursor: pointer; }\n\n.button-container {\n  margin-top: 25px; }\n\n.tile-add-button {\n  width: 75px; }\n\n.submit-button {\n  border: none;\n  background-color: #263238;\n  border-radius: 15px;\n  color: white;\n  font-size: 14px;\n  padding: 5px 10px 5px 10px;\n  cursor: pointer; }\n", ""]);
+exports.push([module.i, "body {\n  margin: 0px !important;\n  padding: 0px !important;\n  font-family: \"Work Sans\", sans-serif;\n  color: #263238; }\n\n.container {\n  padding: 0px;\n  margin: 0px;\n  overflow: auto; }\n\na {\n  text-decoration: none !important; }\n\ntextarea {\n  background-color: transparent; }\n\ninput {\n  background-color: transparent; }\n\n.text-field {\n  font-family: \"Work Sans\", sans-serif;\n  height: 25px;\n  width: 90%;\n  margin-top: 25px;\n  font-size: 14px;\n  text-align: center; }\n\n.field-container input {\n  border: none;\n  border-bottom: #263238 solid 1px; }\n\n.tile-form-exit {\n  font-size: 16px;\n  text-align: right;\n  color: black;\n  cursor: pointer; }\n\n.button-container {\n  margin-top: 25px; }\n\n.tile-add-button {\n  width: 75px; }\n\n.submit-button {\n  border: none;\n  background-color: #263238;\n  border-radius: 15px;\n  color: white;\n  font-size: 14px;\n  padding: 5px 10px 5px 10px;\n  cursor: pointer; }\n", ""]);
 
 // exports
 
@@ -82593,7 +82609,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, "body {\n  margin: 0px !important;\n  padding: 0px !important;\n  font-family: \"Work Sans\", sans-serif;\n  color: #263238; }\n\n.container {\n  padding: 0px;\n  margin: 0px; }\n\na {\n  text-decoration: none !important; }\n\ntextarea {\n  background-color: transparent; }\n\ninput {\n  background-color: transparent; }\n\n.tile-form-hidden {\n  height: 100%;\n  width: 100%;\n  display: flex;\n  text-align: center;\n  align-items: center;\n  justify-content: center;\n  color: #263238;\n  cursor: pointer; }\n\n.tile-form-plus {\n  font-size: 80px;\n  font-family: 'Montserrat', sans-serif;\n  font-weight: 300; }\n\n.tile-form-plus:hover {\n  color: #00BCD4; }\n", ""]);
+exports.push([module.i, "body {\n  margin: 0px !important;\n  padding: 0px !important;\n  font-family: \"Work Sans\", sans-serif;\n  color: #263238; }\n\n.container {\n  padding: 0px;\n  margin: 0px;\n  overflow: auto; }\n\na {\n  text-decoration: none !important; }\n\ntextarea {\n  background-color: transparent; }\n\ninput {\n  background-color: transparent; }\n\n.tile-form-hidden {\n  height: 100%;\n  width: 100%;\n  display: flex;\n  text-align: center;\n  align-items: center;\n  justify-content: center;\n  color: #263238;\n  cursor: pointer; }\n\n.tile-form-plus {\n  font-size: 80px;\n  font-family: 'Montserrat', sans-serif;\n  font-weight: 300; }\n\n.tile-form-plus:hover {\n  color: #00BCD4; }\n", ""]);
 
 // exports
 
@@ -82638,7 +82654,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, "body {\n  margin: 0px !important;\n  padding: 0px !important;\n  font-family: \"Work Sans\", sans-serif;\n  color: #263238; }\n\n.container {\n  padding: 0px;\n  margin: 0px; }\n\na {\n  text-decoration: none !important; }\n\ntextarea {\n  background-color: transparent; }\n\ninput {\n  background-color: transparent; }\n\n.tile-add-container {\n  margin: 5px;\n  width: 300px;\n  height: 125px;\n  cursor: pointer; }\n\n@media only screen and (max-width: 500px) {\n  .tile-add-container {\n    width: 90%;\n    margin: 0 auto;\n    margin-bottom: 10px; } }\n", ""]);
+exports.push([module.i, "body {\n  margin: 0px !important;\n  padding: 0px !important;\n  font-family: \"Work Sans\", sans-serif;\n  color: #263238; }\n\n.container {\n  padding: 0px;\n  margin: 0px;\n  overflow: auto; }\n\na {\n  text-decoration: none !important; }\n\ntextarea {\n  background-color: transparent; }\n\ninput {\n  background-color: transparent; }\n\n.tile-add-container {\n  margin: 5px;\n  width: 300px;\n  height: 125px;\n  cursor: pointer; }\n\n@media only screen and (max-width: 500px) {\n  .tile-add-container {\n    width: 90%;\n    margin: 0 auto;\n    margin-bottom: 10px; } }\n", ""]);
 
 // exports
 
@@ -82806,7 +82822,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, "body {\n  margin: 0px !important;\n  padding: 0px !important;\n  font-family: \"Work Sans\", sans-serif;\n  color: #263238; }\n\n.container {\n  padding: 0px;\n  margin: 0px; }\n\na {\n  text-decoration: none !important; }\n\ntextarea {\n  background-color: transparent; }\n\ninput {\n  background-color: transparent; }\n\n.stream-tile {\n  width: 300px;\n  height: 125px;\n  margin: 10px;\n  text-align: center;\n  font-family: \"Work Sans\", sans-serif;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  cursor: pointer; }\n  .stream-tile a {\n    text-decoration: none; }\n\n.stream-tile:hover {\n  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.stream-content {\n  padding-top: 10px; }\n\n.stream-name {\n  min-height: 25px;\n  background-color: white;\n  color: #263238;\n  margin-left: 20px;\n  margin-right: 20px;\n  border-radius: 1000px;\n  padding: 5px; }\n  .stream-name p {\n    margin: 0;\n    padding: 0;\n    font-size: 20px;\n    font-weight: bold;\n    line-height: 20px; }\n\n.stream-time {\n  text-transform: uppercase;\n  padding-top: 10px;\n  font-size: 16px; }\n\n.last-entry {\n  padding-top: 5px; }\n\n.last-label {\n  font-size: 16px;\n  padding-right: 5px; }\n\n.dark-text {\n  color: black; }\n\n.light-text {\n  color: white; }\n\n.color-0 {\n  background-color: #B2EBF2; }\n\n.color-1 {\n  background-color: #80DEEA; }\n\n.color-2 {\n  background-color: #4DD0E1; }\n\n.color-3 {\n  background-color: #26C6DA; }\n\n.color-4 {\n  background-color: #00BCD4; }\n\n.color-5 {\n  background-color: #00ACC1; }\n\n.color-6 {\n  background-color: #0097A7; }\n\n.color-7 {\n  background-color: #00838F; }\n\n.color-8 {\n  background-color: #006064; }\n\n@media only screen and (max-width: 500px) {\n  .stream-tile {\n    width: 90%;\n    margin: 0 auto;\n    height: 100px; }\n  .stream-content {\n    padding-top: 5px; }\n  .stream-name {\n    padding-top: 5px;\n    font-size: 24px; }\n  .stream-time {\n    padding-top: 2px;\n    font-size: 14px; }\n  .last-entry p {\n    padding-top: 0px;\n    margin: 0px; } }\n", ""]);
+exports.push([module.i, "body {\n  margin: 0px !important;\n  padding: 0px !important;\n  font-family: \"Work Sans\", sans-serif;\n  color: #263238; }\n\n.container {\n  padding: 0px;\n  margin: 0px;\n  overflow: auto; }\n\na {\n  text-decoration: none !important; }\n\ntextarea {\n  background-color: transparent; }\n\ninput {\n  background-color: transparent; }\n\n.stream-tile {\n  width: 300px;\n  height: 125px;\n  margin: 10px;\n  text-align: center;\n  font-family: \"Work Sans\", sans-serif;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  cursor: pointer; }\n  .stream-tile a {\n    text-decoration: none; }\n\n.stream-tile:hover {\n  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }\n\n.stream-content {\n  padding-top: 10px; }\n\n.stream-name {\n  min-height: 25px;\n  background-color: white;\n  color: #263238;\n  margin-left: 20px;\n  margin-right: 20px;\n  border-radius: 1000px;\n  padding: 5px; }\n  .stream-name p {\n    margin: 0;\n    padding: 0;\n    font-size: 20px;\n    font-weight: bold;\n    line-height: 20px; }\n\n.stream-time {\n  text-transform: uppercase;\n  padding-top: 10px;\n  font-size: 16px; }\n\n.last-entry {\n  padding-top: 5px; }\n\n.last-label {\n  font-size: 16px;\n  padding-right: 5px; }\n\n.dark-text {\n  color: black; }\n\n.light-text {\n  color: white; }\n\n.color-0 {\n  background-color: #B2EBF2; }\n\n.color-1 {\n  background-color: #80DEEA; }\n\n.color-2 {\n  background-color: #4DD0E1; }\n\n.color-3 {\n  background-color: #26C6DA; }\n\n.color-4 {\n  background-color: #00BCD4; }\n\n.color-5 {\n  background-color: #00ACC1; }\n\n.color-6 {\n  background-color: #0097A7; }\n\n.color-7 {\n  background-color: #00838F; }\n\n.color-8 {\n  background-color: #006064; }\n\n@media only screen and (max-width: 500px) {\n  .stream-tile {\n    width: 90%;\n    margin: 0 auto;\n    height: 100px; }\n  .stream-content {\n    padding-top: 5px; }\n  .stream-name {\n    padding-top: 5px;\n    font-size: 24px; }\n  .stream-time {\n    padding-top: 2px;\n    font-size: 14px; }\n  .last-entry p {\n    padding-top: 0px;\n    margin: 0px; } }\n", ""]);
 
 // exports
 
@@ -82851,7 +82867,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, "body {\n  margin: 0px !important;\n  padding: 0px !important;\n  font-family: \"Work Sans\", sans-serif;\n  color: #263238; }\n\n.container {\n  padding: 0px;\n  margin: 0px; }\n\na {\n  text-decoration: none !important; }\n\ntextarea {\n  background-color: transparent; }\n\ninput {\n  background-color: transparent; }\n\n.tiles-view {\n  height: 100vh;\n  text-align: center; }\n\n.tiles-message {\n  margin-top: 25px;\n  font-size: 24px; }\n\n.tiles-grid {\n  display: grid;\n  margin: 10px;\n  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));\n  grid-auto-rows: 150px;\n  grid-gap: 5px; }\n\n@media only screen and (max-width: 500px) {\n  .tiles-grid {\n    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));\n    grid-auto-rows: 150px;\n    grid-gap: 5px; } }\n", ""]);
+exports.push([module.i, "body {\n  margin: 0px !important;\n  padding: 0px !important;\n  font-family: \"Work Sans\", sans-serif;\n  color: #263238; }\n\n.container {\n  padding: 0px;\n  margin: 0px;\n  overflow: auto; }\n\na {\n  text-decoration: none !important; }\n\ntextarea {\n  background-color: transparent; }\n\ninput {\n  background-color: transparent; }\n\n.tiles-view {\n  height: 100vh;\n  text-align: center; }\n\n.tiles-message {\n  margin-top: 25px;\n  font-size: 24px; }\n\n.tiles-grid {\n  display: grid;\n  margin: 10px;\n  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));\n  grid-auto-rows: 150px;\n  grid-gap: 5px; }\n\n@media only screen and (max-width: 500px) {\n  .tiles-grid {\n    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));\n    grid-auto-rows: 100px;\n    grid-gap: 5px; } }\n", ""]);
 
 // exports
 
@@ -82941,7 +82957,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, "body {\n  margin: 0px !important;\n  padding: 0px !important;\n  font-family: \"Work Sans\", sans-serif;\n  color: #263238; }\n\n.container {\n  padding: 0px;\n  margin: 0px; }\n\na {\n  text-decoration: none !important; }\n\ntextarea {\n  background-color: transparent; }\n\ninput {\n  background-color: transparent; }\n\n.login-form {\n  margin-top: 50px;\n  text-align: center; }\n\n.login-message {\n  text-transform: uppercase;\n  font-size: 20px;\n  font-family: 'Lato', sans-serif;\n  margin-bottom: 50px;\n  color: #f44336; }\n\n.login-form input {\n  font-size: 16px;\n  width: 275px;\n  height: 30px;\n  margin: 10px;\n  border: none;\n  border-bottom: gray solid 1px;\n  padding: 5px; }\n\n.confirm-password-error {\n  font-family: 'Lato', sans-serif;\n  color: #b71c1c;\n  display: block; }\n\n.login-button {\n  border: none;\n  border-radius: 3px;\n  width: 290px;\n  height: 50px;\n  margin-top: 20px;\n  background-color: #f44336;\n  font-size: 16px;\n  text-transform: uppercase;\n  color: white;\n  cursor: pointer; }\n", ""]);
+exports.push([module.i, "body {\n  margin: 0px !important;\n  padding: 0px !important;\n  font-family: \"Work Sans\", sans-serif;\n  color: #263238; }\n\n.container {\n  padding: 0px;\n  margin: 0px;\n  overflow: auto; }\n\na {\n  text-decoration: none !important; }\n\ntextarea {\n  background-color: transparent; }\n\ninput {\n  background-color: transparent; }\n\n.login-form {\n  margin-top: 50px;\n  text-align: center; }\n\n.login-message {\n  text-transform: uppercase;\n  font-size: 20px;\n  font-family: 'Lato', sans-serif;\n  margin-bottom: 50px;\n  color: #f44336; }\n\n.login-form input {\n  font-size: 16px;\n  width: 275px;\n  height: 30px;\n  margin: 10px;\n  border: none;\n  border-bottom: gray solid 1px;\n  padding: 5px; }\n\n.confirm-password-error {\n  font-family: 'Lato', sans-serif;\n  color: #b71c1c;\n  display: block; }\n\n.login-button {\n  border: none;\n  border-radius: 3px;\n  width: 290px;\n  height: 50px;\n  margin-top: 20px;\n  background-color: #f44336;\n  font-size: 16px;\n  text-transform: uppercase;\n  color: white;\n  cursor: pointer; }\n", ""]);
 
 // exports
 
@@ -82986,7 +83002,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, "body {\n  margin: 0px !important;\n  padding: 0px !important;\n  font-family: \"Work Sans\", sans-serif;\n  color: #263238; }\n\n.container {\n  padding: 0px;\n  margin: 0px; }\n\na {\n  text-decoration: none !important; }\n\ntextarea {\n  background-color: transparent; }\n\ninput {\n  background-color: transparent; }\n\n.signup {\n  margin-top: 50px;\n  text-align: center; }\n\n.create-account-message {\n  text-transform: uppercase;\n  font-size: 20px;\n  font-family: 'Lato', sans-serif;\n  margin-bottom: 50px;\n  color: #558B2F; }\n\n.signup input {\n  font-size: 16px;\n  width: 275px;\n  height: 30px;\n  margin: 10px;\n  border: none;\n  border-bottom: gray solid 1px;\n  padding: 5px; }\n\n.confirm-password-error {\n  font-family: 'Lato', sans-serif;\n  color: #b71c1c;\n  display: block; }\n\n.signup-button {\n  border: none;\n  border-radius: 3px;\n  width: 290px;\n  height: 50px;\n  margin-top: 20px;\n  background-color: #8BC34A;\n  font-size: 18px;\n  text-transform: uppercase;\n  color: white;\n  cursor: pointer; }\n", ""]);
+exports.push([module.i, "body {\n  margin: 0px !important;\n  padding: 0px !important;\n  font-family: \"Work Sans\", sans-serif;\n  color: #263238; }\n\n.container {\n  padding: 0px;\n  margin: 0px;\n  overflow: auto; }\n\na {\n  text-decoration: none !important; }\n\ntextarea {\n  background-color: transparent; }\n\ninput {\n  background-color: transparent; }\n\n.signup {\n  margin-top: 50px;\n  text-align: center; }\n\n.create-account-message {\n  text-transform: uppercase;\n  font-size: 20px;\n  font-family: 'Lato', sans-serif;\n  margin-bottom: 50px;\n  color: #558B2F; }\n\n.signup input {\n  font-size: 16px;\n  width: 275px;\n  height: 30px;\n  margin: 10px;\n  border: none;\n  border-bottom: gray solid 1px;\n  padding: 5px; }\n\n.confirm-password-error {\n  font-family: 'Lato', sans-serif;\n  color: #b71c1c;\n  display: block; }\n\n.signup-button {\n  border: none;\n  border-radius: 3px;\n  width: 290px;\n  height: 50px;\n  margin-top: 20px;\n  background-color: #8BC34A;\n  font-size: 18px;\n  text-transform: uppercase;\n  color: white;\n  cursor: pointer; }\n", ""]);
 
 // exports
 
@@ -83031,7 +83047,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, "body {\n  margin: 0px !important;\n  padding: 0px !important;\n  font-family: \"Work Sans\", sans-serif;\n  color: #263238; }\n\n.container {\n  padding: 0px;\n  margin: 0px; }\n\na {\n  text-decoration: none !important; }\n\ntextarea {\n  background-color: transparent; }\n\ninput {\n  background-color: transparent; }\n\n.nav {\n  height: 65px;\n  background-color: #263238;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  top: 0;\n  width: 100%;\n  z-index: 100; }\n\n.nav li {\n  margin-left: 25px;\n  display: inline;\n  list-style: none;\n  color: white;\n  font-size: 18px; }\n\n.nav a:hover {\n  color: #BBDEFB; }\n\n.nav a {\n  font-family: \"Work Sans\", sans-serif;\n  color: white;\n  line-height: 65px; }\n\n.nav a:hover {\n  color: #00BCD4; }\n\n.nav a.active {\n  color: #00BCD4; }\n\n.personal-greeting {\n  position: absolute;\n  line-height: 65px;\n  right: 5%; }\n\n@media screen and (max-width: 425px) {\n  .nav li {\n    font-size: 14px; } }\n", ""]);
+exports.push([module.i, "body {\n  margin: 0px !important;\n  padding: 0px !important;\n  font-family: \"Work Sans\", sans-serif;\n  color: #263238; }\n\n.container {\n  padding: 0px;\n  margin: 0px;\n  overflow: auto; }\n\na {\n  text-decoration: none !important; }\n\ntextarea {\n  background-color: transparent; }\n\ninput {\n  background-color: transparent; }\n\n.nav {\n  height: 65px;\n  background-color: #263238;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  top: 0;\n  width: 100%;\n  z-index: 100; }\n\n.nav li {\n  margin-left: 25px;\n  display: inline;\n  list-style: none;\n  color: white;\n  font-size: 18px; }\n\n.nav a:hover {\n  color: #BBDEFB; }\n\n.nav a {\n  font-family: \"Work Sans\", sans-serif;\n  color: white;\n  line-height: 65px; }\n\n.nav a:hover {\n  color: #00BCD4; }\n\n.nav a.active {\n  color: #00BCD4; }\n\n.personal-greeting {\n  position: absolute;\n  line-height: 65px;\n  right: 5%; }\n  .personal-greeting p {\n    margin: 0;\n    padding: 0; }\n\n@media screen and (max-width: 425px) {\n  .nav li {\n    font-size: 14px; } }\n", ""]);
 
 // exports
 
@@ -83083,7 +83099,11 @@ var Welcome = function (_Component) {
         _react2.default.createElement(
           'div',
           { className: 'brand' },
-          _react2.default.createElement('img', { className: 'logo', src: '../../../img/Logo.png', alt: 'logo' }),
+          _react2.default.createElement(
+            'div',
+            { className: 'logo-container' },
+            _react2.default.createElement('img', { className: 'logo', src: '../../../img/Logo.png', alt: 'logo' })
+          ),
           _react2.default.createElement(
             'h1',
             null,
@@ -83093,14 +83113,18 @@ var Welcome = function (_Component) {
         _react2.default.createElement(
           'div',
           { className: 'tagline' },
-          'Track the time you spend toward your goals'
+          _react2.default.createElement(
+            'p',
+            null,
+            'Track the time you spend toward your goals'
+          )
         ),
         _react2.default.createElement(
-          _reactRouterDom.Link,
-          { to: '/signup' },
+          'div',
+          { className: 'signup-link' },
           _react2.default.createElement(
-            'div',
-            { className: 'signup-link' },
+            _reactRouterDom.Link,
+            { to: '/signup' },
             'Sign up'
           )
         )
@@ -83153,7 +83177,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, ".welcome {\n  height: 100vh; }\n\n.brand {\n  position: relative;\n  width: 75%;\n  margin: 100px 0px 0px 50px;\n  height: 100px; }\n  .brand h1 {\n    display: inline-block;\n    height: 100%;\n    margin-bottom: 0px;\n    margin-top: 10px;\n    font-size: 65px; }\n\n.logo {\n  display: inline-block;\n  height: 80px;\n  float: left; }\n\n.tagline {\n  display: inline-block;\n  margin-left: 75px;\n  margin-top: 25px;\n  font-size: 22px; }\n\n.signup-link {\n  text-align: center;\n  text-transform: uppercase;\n  border: none;\n  background-color: #00BCD4;\n  border-radius: 25px;\n  width: 180px;\n  height: 25px;\n  margin-left: 100px;\n  margin-top: 75px;\n  padding: 10px;\n  cursor: pointer; }\n\n.welcome a {\n  color: white; }\n\n.signup-link {\n  font-size: 18px; }\n\n@media only screen and (max-width: 550px) {\n  .welcome {\n    text-align: center; }\n  .brand {\n    text-align: center;\n    font-size: 24px;\n    margin-bottom: 50px; }\n    .brand .logo {\n      margin-left: 35%; }\n  .tagline {\n    display: inline-block;\n    margin-left: 20px;\n    margin-right: 20px; } }\n", ""]);
+exports.push([module.i, ".welcome {\n  height: 100vh;\n  text-align: left;\n  margin-left: 25px;\n  margin-right: 25px;\n  width: 100%; }\n\n.brand {\n  position: relative;\n  width: 100%;\n  margin-top: 10%;\n  margin-right: 10%; }\n  .brand h1 {\n    display: inline-block;\n    height: 100%;\n    margin-bottom: 0px;\n    margin-top: 10px;\n    font-size: 65px; }\n\n.logo {\n  display: inline-block;\n  height: 80px;\n  float: left; }\n\n.tagline {\n  display: inline-block;\n  width: 100%;\n  margin: 25px;\n  font-size: 22px; }\n\n.signup-link {\n  text-align: center;\n  text-transform: uppercase;\n  border: none;\n  background-color: #00BCD4;\n  border-radius: 25px;\n  width: 180px;\n  height: 25px;\n  margin: 25px;\n  padding: 10px;\n  cursor: pointer;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }\n\n.welcome a {\n  color: white; }\n\n.signup-link {\n  font-size: 18px; }\n\n@media only screen and (max-width: 450px) {\n  .welcome {\n    margin-left: 0px;\n    margin-top: 50px; }\n  .brand {\n    margin: 0; } }\n\n@media only screen and (max-width: 450px) {\n  .welcome {\n    margin-left: 0px;\n    margin-top: 50px;\n    text-align: center; }\n  .brand {\n    margin: 0;\n    width: 100%; }\n    .brand h1 {\n      margin-left: 10px; }\n    .brand img {\n      margin-left: 40%;\n      margin-bottom: 10%; }\n  .signup-link {\n    width: 40%;\n    margin-left: 28%; }\n  .tagline {\n    width: 100%;\n    margin: 0; }\n    .tagline p {\n      margin: 10px; } }\n", ""]);
 
 // exports
 
