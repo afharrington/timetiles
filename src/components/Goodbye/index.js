@@ -7,7 +7,7 @@ import "./style.scss";
 
 class Goodbye extends Component {
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.unauthorizeUser();
   }
 
