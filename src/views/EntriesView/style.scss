@@ -38,19 +38,12 @@
 
 .entry-list-container {
   text-align: center;
+  margin-top: 25px;
   font-family: $main-font, sans-serif !important;
 }
 
-.back {
-  display: inline;
-  font-size: 24px;
-  margin-left: 5%;
-  color: $gray !important;
-  cursor: pointer;
-}
-
 .entries-container {
-  margin-top: 0px;
+  margin-top: 50px;
   color: white;
   font-size: 18px;
 }
@@ -69,12 +62,13 @@
   font-size: 14px;
   font-weight: bold;
   color: #b71c1c;
-  margin-top: 25px;
+  margin-top: 50px;
   cursor: pointer;
 }
 
 .delete-tile {
   color: $red !important;
+  margin-top: 15px;
 }
 
 .color-0 {

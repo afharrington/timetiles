@@ -89,7 +89,6 @@ class EntriesView extends Component {
 
     return (
       <div className="entries-view">
-        <Link className="back" to="/app"><FontAwesome name='chevron-circle-left'/></Link>
         <div className="entry-list-container">
         <div className="tile-name">{this.props.tile.name}</div>
           {this.renderTotalMinutes()}
