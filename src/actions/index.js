@@ -8,6 +8,7 @@ export const UPDATE_COLOR = "update_color";
 export const FETCH_ENTRIES = "fetch_entries";
 export const CREATE_ENTRY = "create_entry";
 export const DELETE_ENTRY = "delete_entry";
+export const UPDATE_ENTRY = "update_entry";
 
 export const AUTHORIZE_USER = "authorize_user";
 export const UNAUTHORIZE_USER = "unauthorize_user";
@@ -92,6 +93,7 @@ export function createTile(values, callback) {
 }
 
 export function deleteTile(id, callback) {
+  console.log("id:", id);
   const request = axios.delete(`${ROOT_URL}/tile/${id}`, {
     headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
   })
@@ -141,8 +143,19 @@ export function createEntry(values, tileId, callback) {
   }
 }
 
-export function deleteEntry(tileId, entryIndex, callback) {
-  const request = axios.delete(`${ROOT_URL}/tile/${tileId}/entry/${entryIndex}`, {
+export function updateEntry(values, tileId, entryId, callback) {
+  const request = axios.put(`${ROOT_URL}/tile/${tileId}/entry/${entryId}`, values, {
+    headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
+  })
+    .then(() => callback());
+  return {
+    type: UPDATE_ENTRY,
+    payload: request
+  };
+}
+
+export function deleteEntry(tileId, entryId, callback) {
+  const request = axios.delete(`${ROOT_URL}/tile/${tileId}/entry/${entryId}`, {
     headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
   })
     .then(() => callback());

@@ -10,21 +10,11 @@ class EntryItem extends React.Component {
     super(props);
   }
 
-  // Renders entry minutes as hours and minutes
-  renderTime() {
-    let totalMinutes = this.props.minutes;
-    let hours = Math.floor(totalMinutes / 60);
-    let minutes = totalMinutes % 60;
-    return (
-      <div className="time">{hours} hrs {minutes} min</div>
-    )
-  }
-
   render() {
     return (
       <div className="entry">
-        <p className="edit" onClick={this.props.onEdit.bind(this)}><FontAwesome name='pencil'/></p>
-        <p className="delete" onClick={this.props.onDelete.bind(this)}><FontAwesome name='trash'/></p>
+        <p className="edit" onClick={this.props.showEditForm}><FontAwesome name='pencil'/></p>
+        <p className="delete" onClick={this.props.deleteEntry}><FontAwesome name='trash'/></p>
         <div className="top-row">
           <Moment className="date" format="dddd, MMMM Do YYYY, h:mm a">{this.props.date}</Moment>
         </div>
@@ -32,7 +22,7 @@ class EntryItem extends React.Component {
           <div className="entry-content">{this.props.content}</div>
         </div>
         <div>
-        {this.renderTime()}
+          <div className="time">{this.props.hours} hrs {this.props.minutes} min</div>
         </div>
       </div>
     );

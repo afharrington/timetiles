@@ -55,20 +55,10 @@
   color: $gray;
 }
 
-.delete-stream {
-  width: 100px;
-  height: 22px;
-  margin: 0 auto;
-  font-size: 14px;
-  font-weight: bold;
-  color: #b71c1c;
-  margin-top: 50px;
-  cursor: pointer;
-}
-
 .delete-tile {
   color: $red !important;
   margin-top: 15px;
+  cursor: pointer;
 }
 
 .color-0 {

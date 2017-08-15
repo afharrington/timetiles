@@ -6,13 +6,13 @@ import {bindActionCreators} from "redux";
 import { connect } from "react-redux";
 import _ from "lodash";
 
-import { fetchEntries, deleteEntry, deleteTile } from "../../actions";
+import { fetchEntries, updateEntry, deleteEntry, deleteTile } from "../../actions";
 
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import FontAwesome from "react-fontawesome";
 
 import EntryAddContainer from "../../components/EntryAddContainer";
-import EntryItem from "../../components/EntryItem";
+import EntryItemContainer from "../../components/EntryItemContainer";
 
 import "../../styles/main.scss";
 import "./style.scss";
@@ -30,24 +30,19 @@ class EntriesView extends Component {
     this.props.fetchEntries(this.state.tileId);
   }
 
-  // Deletes an entry by finding its index in the entries array and passing
-  // that index to the deleteEntry action creator
-  // When complete, re-fetch entries for the tile for component to re-render
-  deleteEntry(_id) {
-    const currentEntries = this.props.tile.entries;
-    const indexToDelete = currentEntries
-      .findIndex(
-        function(entry) {
-          return entry._id === _id;
-        }
-      )
-    this.props.deleteEntry(this.state.tileId, indexToDelete, () => {
-      this.props.fetchEntries(this.state.tileId);
-    });
-  }
+  // updateEntry(_id) {
+  //   this.props.updateEntry(_id, () => {
+  //     this.props.fetchEntries(this.state.tileId);
+  //   });
+  // }
 
-  // Passes the tile's id to the delete_Tile action creator and then
-  // redirects user to the TilesView
+  // These actions will get moved to EntryItemContainer
+  // deleteEntry(_id) {
+  //   this.props.deleteEntry(this.state.tileId, _id, () => {
+  //     this.props.fetchEntries(this.state.tileId);
+  //   });
+  // }
+
   deleteTile() {
     this.props.deleteTile(this.state.tileId, () => {
       this.props.history.push("/app");
@@ -66,16 +61,17 @@ class EntriesView extends Component {
   }
 
   // Creates an entry item for each entry in the entries array on tile's state
+  // Passes edit/delete event handlers as props to EntryItem
   renderEntries() {
-    const entries = this.props.tile.entries;
-    return entries.map((entry) => {
+    return _.map(this.props.tile.entries, entry => {
       return (
-          <EntryItem
+          <EntryItemContainer
             key={entry._id}
+            tileId={this.state.tileId}
+            entryId={entry._id}
             date={entry.created_date}
             content={entry.content}
             minutes={entry.minutes}
-            onClick={this.deleteEntry.bind(this, entry._id)}
           />
       );
     });
@@ -118,6 +114,7 @@ function mapStateToProps(state, ownProps) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     fetchEntries,
+    updateEntry,
     deleteEntry,
     deleteTile
   }, dispatch)

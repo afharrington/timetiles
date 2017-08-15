@@ -13,7 +13,7 @@ import App from './App';
 import { AUTHORIZE_USER } from './actions';
 import reducers from "./reducers";
 
-const createStoreWithMiddleware = applyMiddleware(promise, thunk)(createStore);
+const createStoreWithMiddleware = applyMiddleware(promise, thunk, logger)(createStore);
 
 const store = createStoreWithMiddleware(reducers);
 
