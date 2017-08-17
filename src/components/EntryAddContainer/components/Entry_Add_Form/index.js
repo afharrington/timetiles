@@ -4,12 +4,29 @@ import { Field, reduxForm } from "redux-form";
 import { connect } from "react-redux";
 import { createEntry, fetchEntries } from "../../../../actions";
 import FontIcon from 'material-ui/FontIcon';
+import moment from 'moment';
 import "../../../../styles/main.scss";
 import "./style.scss";
 
 class EntryAddForm extends React.Component {
   constructor(props) {
     super(props);
+
+    const date = moment().format();
+
+    // initialData date is formatted for datetime-local input
+    // Save offset for onSubmit method
+    this.state = {
+      isodate: date,
+      offset: date.slice(19, 27),
+      initialData: {
+        date: date.slice(0,-9)
+      }
+    }
+  }
+
+  componentDidMount() {
+    this.props.initialize(this.state.initialData);
   }
 
   // Renders the text field configured in the main render() function
@@ -20,7 +37,7 @@ class EntryAddForm extends React.Component {
         <textarea
           className={field.styleclass}
           type="text"
-          placeholder="Add an entry..."
+          placeholder={field.placeholder}
           {...field.input}
         />
       </div>
@@ -43,6 +60,18 @@ class EntryAddForm extends React.Component {
     )
   }
 
+  renderDateField(field) {
+    return (
+      <div className="date-container">
+        <input
+          className={field.styleclass}
+          type="datetime-local"
+          {...field.input}
+        />
+      </div>
+    )
+  }
+
   // Converts time inputs to minutes and dispatches createEntry action creator
   // with form values, then exits the form and re-fetches entries for the tile
   onSubmit(values) {
@@ -51,8 +80,12 @@ class EntryAddForm extends React.Component {
     }
     let hoursInMinutes = values.hours * 60;
 
+    const dateWithOffset = values.date + this.state.offset;
+
     let formattedValues = {
+      date: dateWithOffset,
       content: values.content,
+      comments: values.comments,
       minutes: Number(values.minutes) + Number(hoursInMinutes)
     };
     // dispatch createEntry then call onExit function to exit form
@@ -69,10 +102,23 @@ class EntryAddForm extends React.Component {
       <div className="entry-add-form">
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <Field
-            label="Details"
+            label="Date"
+            name="date"
+            styleclass="entry-date"
+            component={this.renderDateField}
+          />
+          <Field
+            label="Activity"
             name="content"
-            placeholder="Enter Details"
-            styleclass="details"
+            placeholder="Activity"
+            styleclass="activity"
+            component={this.renderTextField}
+          />
+          <Field
+            label="Comments"
+            name="comments"
+            placeholder="Comments (optional)"
+            styleclass="comments"
             component={this.renderTextField}
           />
           <Field
@@ -104,7 +150,7 @@ class EntryAddForm extends React.Component {
 function validate(values) {
     const errors = {};
     if (!values.content) {
-      errors.content = "Enter entry details";
+      errors.content = "Enter an activity";
     }
     return errors;
 }

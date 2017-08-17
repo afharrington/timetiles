@@ -1,6 +1,7 @@
 @import "../../styles/main.scss";
 
 .nav {
+  position: fixed;
   height: 65px;
   background-color: $gray;
   box-shadow: $shadow;

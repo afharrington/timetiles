@@ -5,7 +5,7 @@ import "./style.scss";
 const EntryAddFormHidden = (props) => {
   return (
     <div className="entry-plus">
-      <p className="plus" onClick={props.onClick}>+</p>
+      <div className="plus" onClick={props.onClick}>+</div>
     </div>
   );
 }

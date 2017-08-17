@@ -15,7 +15,6 @@
 }
 
 .date {
-  position: absolute;
   margin-right: 10px;
   display: inline-block;
   padding-bottom: 10px;
@@ -38,8 +37,11 @@
   max-width: 90%;
 }
 
+.entry-comments {
+  display: block;
+}
+
 .delete, .edit {
-  position: absolute;
   display: inline-block;
   color: $gray;
   right: 15%;

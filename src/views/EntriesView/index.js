@@ -13,6 +13,7 @@ import FontAwesome from "react-fontawesome";
 
 import EntryAddContainer from "../../components/EntryAddContainer";
 import EntryItemContainer from "../../components/EntryItemContainer";
+import Alert from "../../components/Alert";
 
 import "../../styles/main.scss";
 import "./style.scss";
@@ -21,7 +22,8 @@ class EntriesView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tileId: this.props.match.params.tileId
+      tileId: this.props.match.params.tileId,
+      showAlert: false
     };
   }
 
@@ -30,18 +32,13 @@ class EntriesView extends Component {
     this.props.fetchEntries(this.state.tileId);
   }
 
-  // updateEntry(_id) {
-  //   this.props.updateEntry(_id, () => {
-  //     this.props.fetchEntries(this.state.tileId);
-  //   });
-  // }
+  showAlert() {
+    this.setState({ showAlert: true });
+  }
 
-  // These actions will get moved to EntryItemContainer
-  // deleteEntry(_id) {
-  //   this.props.deleteEntry(this.state.tileId, _id, () => {
-  //     this.props.fetchEntries(this.state.tileId);
-  //   });
-  // }
+  hideAlert() {
+    this.setState({ showAlert: false });
+  }
 
   deleteTile() {
     this.props.deleteTile(this.state.tileId, () => {
@@ -69,8 +66,9 @@ class EntriesView extends Component {
             key={entry._id}
             tileId={this.state.tileId}
             entryId={entry._id}
-            date={entry.created_date}
+            date={entry.date}
             content={entry.content}
+            comments={entry.comments}
             minutes={entry.minutes}
           />
       );
@@ -83,9 +81,19 @@ class EntriesView extends Component {
       return <div className="nothing-here">Nothing here! Please log in and try again.</div>
     }
 
+    let alert = null;
+    if (this.state.showAlert) {
+      alert = <Alert
+        message="Are you sure you want to delete this tile and its entries? This action cannot be undone."
+        onDelete={this.deleteTile.bind(this)}
+        onCancel={this.hideAlert.bind(this)}
+        />
+    }
+
     return (
       <div className="entries-view">
         <div className="entry-list-container">
+        {alert}
         <div className="tile-name">{this.props.tile.name}</div>
           {this.renderTotalMinutes()}
           <div className="entries-container">
@@ -97,7 +105,7 @@ class EntriesView extends Component {
               {this.renderEntries()}
             </ReactCSSTransitionGroup>
           </div>
-          <div className="delete-tile" onClick={this.deleteTile.bind(this)}>DELETE ALL</div>
+          <div className="delete-tile" onClick={this.showAlert.bind(this)}>DELETE ALL</div>
         </div>
       </div>
     );

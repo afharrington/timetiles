@@ -14,6 +14,7 @@ class EntryEditForm extends React.Component {
     this.state = {
       initialData: {
         content: this.props.content,
+        comments: this.props.comments,
         hours: this.props.hours,
         minutes: this.props.minutes
       }
@@ -21,14 +22,13 @@ class EntryEditForm extends React.Component {
   }
 
   componentDidMount(){
-    // this.handleInitialize();
     this.props.initialize(this.state.initialData);
   }
 
   // Renders the text field configured in the main render() function
   renderTextField(field) {
     return (
-      <div className="field-container text-box">
+      <div className="field-container text-box-edit">
         {field.meta.touched ? field.meta.error : ""}
         <textarea
           className={field.styleclass}
@@ -66,6 +66,7 @@ class EntryEditForm extends React.Component {
 
     let formattedValues = {
       content: values.content,
+      comments: values.comments,
       minutes: Number(values.minutes) + Number(hoursInMinutes)
     };
     // dispatch createEntry then call onExit function to exit form
@@ -79,12 +80,18 @@ class EntryEditForm extends React.Component {
     const { handleSubmit } = this.props;
 
     return (
-      <div className="entry-add-form">
+      <div className="entry-edit-form">
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <Field
-            label="Details"
+            label="Activity"
             name="content"
-            styleclass="details"
+            styleclass="activity-edit"
+            component={this.renderTextField}
+          />
+          <Field
+            label="Comments"
+            name="comments"
+            styleclass="comments-edit"
             component={this.renderTextField}
           />
           <Field
@@ -116,7 +123,7 @@ class EntryEditForm extends React.Component {
 function validate(values) {
     const errors = {};
     if (!values.content) {
-      errors.content = "Enter entry details";
+      errors.content = "Enter an activity";
     }
     return errors;
 }

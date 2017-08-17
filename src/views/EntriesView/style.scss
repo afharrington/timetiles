@@ -25,11 +25,11 @@
 // END CSS TRANSITION ANIMATION
 
 .entries-view {
-  height: 100vh;
   color: white;
 }
 
 .tile-name {
+  margin-top: 80px;
   font-family: $main-font;
   font-size: 24px;
   margin-bottom: 20px;
@@ -43,7 +43,6 @@
 }
 
 .entries-container {
-  margin-top: 50px;
   color: white;
   font-size: 18px;
 }
@@ -59,6 +58,7 @@
   color: $red !important;
   margin-top: 15px;
   cursor: pointer;
+  margin-bottom: 100px;
 }
 
 .color-0 {

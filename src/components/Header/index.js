@@ -13,7 +13,7 @@ import "./style.scss";
 
 class Header extends Component {
 
-  // Get name from local storage if it exists 
+  // Get name from local storage if it exists
   renderGreeting() {
     let name = localStorage.getItem('name') || this.props.name;
     return (
@@ -26,7 +26,7 @@ class Header extends Component {
     if (this.props.authenticated) {
       return [
         <li key={1}>
-          <NavLink to="/app">MyTiles</NavLink>
+          <NavLink to="/app">Home</NavLink>
         </li>,
         <li key={2}>
           <NavLink to="/goodbye">Logout</NavLink>

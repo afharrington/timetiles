@@ -1,0 +1,96 @@
+@import "../../../../styles/main.scss";
+
+.entry-edit-form {
+  background-color: $light-gray;
+  width: 75%;
+  margin: 0 auto;
+  color: black;
+  margin-top: 10px;
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+  font-family: $main-font;
+  box-shadow: $shadow;
+}
+
+.cancel {
+  display: inline-block;
+  margin-left: 75%;
+  color: #b71c1c;
+  font-size: 12px;
+}
+
+.field-container {
+  display: inline;
+}
+
+.activity-edit, .comments-edit {
+  text-align: left; // formats placeholder
+  display: block; // keeps field on its own line
+  width: 90%;
+  margin-left: 5%;
+  height: 40px;
+  font-size: 18px;
+  font-weight: 300;
+  font-weight: bold;
+}
+
+.comments-edit {
+  font-size: 14px;
+  font-weight: normal;
+  height: 55px;
+  padding-bottom: 0px;
+  line-height: 40px;
+}
+
+.text-box-edit textarea {
+  resize: none;
+  box-sizing: border-box;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 0px;
+  border-color: #B0BEC5;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  font-family: $main-font;
+  font-size: 18px;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  font-family: $main-font;
+  font-size: 18px;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  font-family: $main-font;
+  font-size: 18px;
+}
+:-moz-placeholder { /* Firefox 18- */
+  font-family: $main-font;
+  font-size: 18px;
+}
+
+.hours, .min {
+  width: 50px;
+  margin-top: 30px;
+  text-align: center;
+  font-size: 14px;
+  border: 1px solid #B0BEC5;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+}
+
+.save {
+  width: 100px;
+}
+
+.cancel {
+  color: $gray !important;
+}
+
+.button-container {
+  text-align: center;
+}

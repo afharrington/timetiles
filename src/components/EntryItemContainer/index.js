@@ -2,6 +2,8 @@
 import React from "react";
 import EntryItem from "./components/Entry_Item";
 import EntryEditForm from "./components/Entry_Edit_Form";
+import { deleteEntry, fetchEntries } from "../../actions";
+import { connect } from "react-redux";
 
 // Renders the form or hidden form depending on formVisible state
 class EntryItemContainer extends React.Component {
@@ -22,14 +24,14 @@ class EntryItemContainer extends React.Component {
     this.setState({ minutes: time[1]});
   }
 
-  showEditForm(e) {
-    this.setState({ formVisible: true} );
+  deleteEntry() {
+    this.props.deleteEntry(this.props.tileId, this.props.entryId, () => {
+      this.props.fetchEntries(this.props.tileId);
+    });
   }
 
-  deleteEntry(_id) {
-    this.props.deleteEntry(this.state.tileId, _id, () => {
-      this.props.fetchEntries(this.state.tileId);
-    });
+  showEditForm(e) {
+    this.setState({ formVisible: true} );
   }
 
   handleExitForm(e) {
@@ -52,16 +54,19 @@ class EntryItemContainer extends React.Component {
         entryId={this.props.entryId}
         date={this.props.date}
         content={this.props.content}
+        comments={this.props.comments}
         hours={this.state.hours}
         minutes={this.state.minutes}
         form={`EntryEditForm-${this.props.entryId}`}
       />
     : <EntryItem
         showEditForm={this.showEditForm.bind(this)}
-        deleteEntry={this.deleteEntry.bind(this)}
+        onDelete={this.deleteEntry.bind(this)}
+        tileId={this.props.tileId}
         entryId={this.props.entryId}
         date={this.props.date}
         content={this.props.content}
+        comments={this.props.comments}
         hours={this.state.hours}
         minutes={this.state.minutes}
       />;
@@ -74,4 +79,4 @@ class EntryItemContainer extends React.Component {
   }
 }
 
-export default EntryItemContainer;
+export default connect(null, { deleteEntry, fetchEntries })(EntryItemContainer);
