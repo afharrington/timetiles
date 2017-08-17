@@ -7,18 +7,12 @@ class Welcome extends Component {
   render() {
     return (
       <div className="welcome">
-        <div className="brand">
-          <div className="logo-container">
-          
-          </div>
+        <div className="welcome-text">
           <h1>TimeTiles</h1>
-        </div>
-        <div className="tagline">
           <p>Track the time you spend toward your goals</p>
         </div>
-        <div className="signup-link">
-          <Link to="/signup">Sign up
-          </Link>
+        <div className="signup-link-container">
+          <Link to="/signup">Sign up</Link>
         </div>
       </div>
     )

@@ -83158,7 +83158,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, "body {\n  margin: 0px !important;\n  padding: 0px !important;\n  font-family: \"Work Sans\", sans-serif;\n  color: #263238; }\n\n.container {\n  padding: 0px;\n  margin: 0px;\n  overflow: auto; }\n\na {\n  text-decoration: none !important; }\n\ntextarea {\n  background-color: transparent; }\n\ninput {\n  background-color: transparent; }\n\n.login-form {\n  margin-top: 50px;\n  text-align: center; }\n\n.login-message {\n  text-transform: uppercase;\n  font-size: 20px;\n  font-family: 'Lato', sans-serif;\n  margin-bottom: 50px;\n  color: #f44336; }\n\n.login-form input {\n  font-size: 16px;\n  width: 275px;\n  height: 30px;\n  margin: 10px;\n  border: none;\n  border-bottom: gray solid 1px;\n  padding: 5px; }\n\n.confirm-password-error {\n  font-family: 'Lato', sans-serif;\n  color: #b71c1c;\n  display: block; }\n\n.login-button {\n  border: none;\n  border-radius: 3px;\n  width: 290px;\n  height: 50px;\n  margin-top: 20px;\n  background-color: #f44336;\n  font-size: 16px;\n  text-transform: uppercase;\n  color: white;\n  cursor: pointer; }\n", ""]);
+exports.push([module.i, "body {\n  margin: 0px !important;\n  padding: 0px !important;\n  font-family: \"Work Sans\", sans-serif;\n  color: #263238; }\n\n.container {\n  padding: 0px;\n  margin: 0px;\n  overflow: auto; }\n\na {\n  text-decoration: none !important; }\n\ntextarea {\n  background-color: transparent; }\n\ninput {\n  background-color: transparent; }\n\n.login-form {\n  margin-top: 100px;\n  text-align: center; }\n\n.login-message {\n  text-transform: uppercase;\n  font-size: 20px;\n  font-family: 'Lato', sans-serif;\n  margin-bottom: 50px;\n  color: #f44336; }\n\n.login-form input {\n  font-size: 16px;\n  width: 275px;\n  height: 30px;\n  margin: 10px;\n  border: none;\n  border-bottom: gray solid 1px;\n  padding: 5px; }\n\n.confirm-password-error {\n  font-family: 'Lato', sans-serif;\n  color: #b71c1c;\n  display: block; }\n\n.login-button {\n  border: none;\n  border-radius: 3px;\n  width: 290px;\n  height: 50px;\n  margin-top: 20px;\n  background-color: #f44336;\n  font-size: 16px;\n  text-transform: uppercase;\n  color: white;\n  cursor: pointer; }\n", ""]);
 
 // exports
 
@@ -83203,7 +83203,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, "body {\n  margin: 0px !important;\n  padding: 0px !important;\n  font-family: \"Work Sans\", sans-serif;\n  color: #263238; }\n\n.container {\n  padding: 0px;\n  margin: 0px;\n  overflow: auto; }\n\na {\n  text-decoration: none !important; }\n\ntextarea {\n  background-color: transparent; }\n\ninput {\n  background-color: transparent; }\n\n.signup {\n  margin-top: 50px;\n  text-align: center; }\n\n.create-account-message {\n  text-transform: uppercase;\n  font-size: 20px;\n  font-family: 'Lato', sans-serif;\n  margin-bottom: 50px;\n  color: #558B2F; }\n\n.signup input {\n  font-size: 16px;\n  width: 275px;\n  height: 30px;\n  margin: 10px;\n  border: none;\n  border-bottom: gray solid 1px;\n  padding: 5px; }\n\n.confirm-password-error {\n  font-family: 'Lato', sans-serif;\n  color: #b71c1c;\n  display: block; }\n\n.signup-button {\n  border: none;\n  border-radius: 3px;\n  width: 290px;\n  height: 50px;\n  margin-top: 20px;\n  background-color: #8BC34A;\n  font-size: 18px;\n  text-transform: uppercase;\n  color: white;\n  cursor: pointer; }\n", ""]);
+exports.push([module.i, "body {\n  margin: 0px !important;\n  padding: 0px !important;\n  font-family: \"Work Sans\", sans-serif;\n  color: #263238; }\n\n.container {\n  padding: 0px;\n  margin: 0px;\n  overflow: auto; }\n\na {\n  text-decoration: none !important; }\n\ntextarea {\n  background-color: transparent; }\n\ninput {\n  background-color: transparent; }\n\n.signup {\n  margin-top: 100px;\n  text-align: center; }\n\n.create-account-message {\n  text-transform: uppercase;\n  font-size: 20px;\n  font-family: 'Lato', sans-serif;\n  margin-bottom: 50px;\n  color: #558B2F; }\n\n.signup input {\n  font-size: 16px;\n  width: 275px;\n  height: 30px;\n  margin: 10px;\n  border: none;\n  border-bottom: gray solid 1px;\n  padding: 5px; }\n\n.confirm-password-error {\n  font-family: 'Lato', sans-serif;\n  color: #b71c1c;\n  display: block; }\n\n.signup-button {\n  border: none;\n  border-radius: 3px;\n  width: 290px;\n  height: 50px;\n  margin-top: 20px;\n  background-color: #8BC34A;\n  font-size: 18px;\n  text-transform: uppercase;\n  color: white;\n  cursor: pointer; }\n", ""]);
 
 // exports
 
@@ -83248,7 +83248,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, "body {\n  margin: 0px !important;\n  padding: 0px !important;\n  font-family: \"Work Sans\", sans-serif;\n  color: #263238; }\n\n.container {\n  padding: 0px;\n  margin: 0px;\n  overflow: auto; }\n\na {\n  text-decoration: none !important; }\n\ntextarea {\n  background-color: transparent; }\n\ninput {\n  background-color: transparent; }\n\n.nav {\n  position: fixed;\n  height: 65px;\n  background-color: #263238;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  top: 0;\n  width: 100%;\n  z-index: 100; }\n\n.nav li {\n  margin-left: 25px;\n  display: inline;\n  list-style: none;\n  color: white;\n  font-size: 18px; }\n\n.nav a:hover {\n  color: #00C7A9; }\n\n.nav a {\n  font-family: \"Work Sans\", sans-serif;\n  color: white;\n  line-height: 65px; }\n\n.nav a:hover {\n  color: #00C7A9; }\n\n.nav a.active {\n  color: #00C7A9; }\n\n.personal-greeting {\n  position: absolute;\n  line-height: 65px;\n  right: 5%; }\n  .personal-greeting p {\n    margin: 0;\n    padding: 0; }\n\n@media screen and (max-width: 425px) {\n  .nav li {\n    font-size: 14px; } }\n", ""]);
+exports.push([module.i, "body {\n  margin: 0px !important;\n  padding: 0px !important;\n  font-family: \"Work Sans\", sans-serif;\n  color: #263238; }\n\n.container {\n  padding: 0px;\n  margin: 0px;\n  overflow: auto; }\n\na {\n  text-decoration: none !important; }\n\ntextarea {\n  background-color: transparent; }\n\ninput {\n  background-color: transparent; }\n\n.nav {\n  position: fixed;\n  height: 65px;\n  background-color: #263238;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n  top: 0;\n  width: 100%;\n  z-index: 100; }\n\n.nav li {\n  margin-left: 25px;\n  display: inline;\n  list-style: none;\n  color: white;\n  font-size: 18px; }\n\n.nav a:hover {\n  color: #00C7A9; }\n\n.nav a {\n  font-family: \"Work Sans\", sans-serif;\n  color: white;\n  line-height: 65px; }\n\n.nav a:hover {\n  color: #00C7A9; }\n\n.nav a.active {\n  color: #00C7A9; }\n\n.personal-greeting {\n  position: absolute;\n  line-height: 65px;\n  right: 5%; }\n  .personal-greeting p {\n    margin: 0;\n    padding: 0; }\n\n@media screen and (max-width: 425px) {\n  .nav li {\n    font-size: 16px; } }\n", ""]);
 
 // exports
 
@@ -83299,17 +83299,12 @@ var Welcome = function (_Component) {
         { className: 'welcome' },
         _react2.default.createElement(
           'div',
-          { className: 'brand' },
-          _react2.default.createElement('div', { className: 'logo-container' }),
+          { className: 'welcome-text' },
           _react2.default.createElement(
             'h1',
             null,
             'TimeTiles'
-          )
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'tagline' },
+          ),
           _react2.default.createElement(
             'p',
             null,
@@ -83318,7 +83313,7 @@ var Welcome = function (_Component) {
         ),
         _react2.default.createElement(
           'div',
-          { className: 'signup-link' },
+          { className: 'signup-link-container' },
           _react2.default.createElement(
             _reactRouterDom.Link,
             { to: '/signup' },
@@ -83374,7 +83369,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, ".welcome {\n  height: 100vh;\n  text-align: left;\n  margin-left: 25px;\n  margin-right: 25px;\n  width: 100%; }\n\n.brand {\n  position: relative;\n  width: 100%;\n  margin-top: 10%;\n  margin-right: 10%; }\n  .brand h1 {\n    display: inline-block;\n    height: 100%;\n    margin-bottom: 0px;\n    margin-top: 10px;\n    font-size: 65px; }\n\n.logo {\n  display: inline-block;\n  height: 80px;\n  float: left; }\n\n.tagline {\n  display: inline-block;\n  width: 100%;\n  margin: 25px;\n  font-size: 22px; }\n\n.signup-link {\n  text-align: center;\n  text-transform: uppercase;\n  border: none;\n  background-color: #00BCD4;\n  border-radius: 25px;\n  width: 180px;\n  height: 25px;\n  margin: 25px;\n  padding: 10px;\n  cursor: pointer;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }\n\n.welcome a {\n  color: white; }\n\n.signup-link {\n  font-size: 18px; }\n\n@media only screen and (max-width: 450px) {\n  .welcome {\n    margin-left: 0px;\n    margin-top: 50px; }\n  .brand {\n    margin: 0; } }\n\n@media only screen and (max-width: 450px) {\n  .welcome {\n    margin-left: 0px;\n    margin-top: 50px;\n    text-align: center; }\n  .brand {\n    margin: 0;\n    width: 100%; }\n    .brand h1 {\n      margin-left: 10px; }\n    .brand img {\n      margin-left: 40%;\n      margin-bottom: 10%; }\n  .signup-link {\n    width: 40%;\n    margin-left: 28%; }\n  .tagline {\n    width: 100%;\n    margin: 0; }\n    .tagline p {\n      margin: 10px; } }\n", ""]);
+exports.push([module.i, "body {\n  margin: 0px !important;\n  padding: 0px !important;\n  font-family: \"Work Sans\", sans-serif;\n  color: #263238; }\n\n.container {\n  padding: 0px;\n  margin: 0px;\n  overflow: auto; }\n\na {\n  text-decoration: none !important; }\n\ntextarea {\n  background-color: transparent; }\n\ninput {\n  background-color: transparent; }\n\n.welcome {\n  margin-top: 150px;\n  width: 100%; }\n\n.welcome-text {\n  width: 80%;\n  margin-left: 10%;\n  margin-bottom: 80px; }\n  .welcome-text h1 {\n    font-size: 36px; }\n  .welcome-text p {\n    font-size: 24px; }\n\n.signup-link-container {\n  display: block;\n  width: 80%;\n  margin-left: 10%;\n  text-align: left;\n  border: none;\n  margin-top: 50px;\n  height: 100px; }\n\n.signup-link-container a {\n  cursor: pointer;\n  text-transform: uppercase;\n  color: white;\n  background-color: #00C7A9;\n  border-radius: 25px;\n  padding: 10px 50px 10px 50px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }\n\n.signup-link a:visited {\n  color: white; }\n\n@media only screen and (max-width: 500px) {\n  .welcome {\n    text-align: center; }\n  .welcome-text h1 {\n    font-size: 28px; }\n  .welcome-text p {\n    font-size: 18px; }\n  .signup-link-container {\n    text-align: center; } }\n", ""]);
 
 // exports
 

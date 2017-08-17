@@ -1,97 +1,62 @@
+@import "../../styles/main.scss";
+
 .welcome {
-  height: 100vh;
-  text-align: left;
-  margin-left: 25px;
-  margin-right: 25px;
+  margin-top: 150px;
   width: 100%;
 }
 
-.brand {
-  position: relative;
-  width: 100%;
-  margin-top: 10%;
-  margin-right: 10%;
+.welcome-text {
+  width: 80%;
+  margin-left: 10%;
+  margin-bottom: 80px;
 
   h1 {
-    display: inline-block;
-    height: 100%;
-    margin-bottom: 0px;
-    margin-top: 10px;
-    font-size: 65px
+    font-size: 36px;
+  }
+  p {
+    font-size: 24px;
   }
 }
 
-.logo {
-  display: inline-block;
-  height: 80px;
-  float: left;
-}
-
-.tagline {
-  display: inline-block;
-  width: 100%;
-  margin: 25px;
-  font-size: 22px;
-}
-
-.signup-link {
-  text-align: center;
-  text-transform: uppercase;
+.signup-link-container {
+  display: block;
+  width: 80%;
+  margin-left: 10%;
+  text-align: left;
   border: none;
-  background-color: #00BCD4;
-  border-radius: 25px;
-  width: 180px;
-  height: 25px;
-  margin: 25px;
-  padding: 10px;
+  margin-top: 50px;
+  height: 100px;
+}
+
+.signup-link-container a {
   cursor: pointer;
+  text-transform: uppercase;
+  color: white;
+  background-color: $accent;
+  border-radius: 25px;
+  padding: 10px 50px 10px 50px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
-.welcome a {
+.signup-link a:visited {
   color: white;
 }
 
-.signup-link {
-  font-size: 18px;
-}
-
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 500px) {
   .welcome {
-    margin-left: 0px;
-    margin-top: 50px;
-  }
-  .brand {
-    margin: 0;
-  }
-}
-@media only screen and (max-width: 450px) {
-  .welcome {
-    margin-left: 0px;
-    margin-top: 50px;
     text-align: center;
   }
-  .brand {
-    margin: 0;
-    width: 100%;
-    h1 {
-      margin-left: 10px;
-    }
-    img {
-      margin-left: 40%;
-      margin-bottom: 10%;
-    }
-  }
-  .signup-link {
-    width: 40%;
-    margin-left: 28%;
-  }
-  .tagline {
-    width: 100%;
-    margin: 0;
 
-    p {
-      margin: 10px;
+  .welcome-text {
+    h1 {
+      font-size: 28px;
     }
+    p {
+      font-size: 18px;
+    }
+  }
+
+  .signup-link-container {
+    text-align: center;
   }
 }
