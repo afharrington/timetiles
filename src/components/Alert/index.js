@@ -9,7 +9,7 @@ class Alert extends React.Component {
           <p>{this.props.message}</p>
         </div>
         <div className="alert-options">
-          <button onClick={this.props.onDelete}>Delete</button>
+          <button className="confirm-delete" onClick={this.props.onDelete}>Delete</button>
           <button onClick={this.props.onCancel}>Cancel</button>
         </div>
       </div>

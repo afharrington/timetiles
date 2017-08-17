@@ -43,7 +43,7 @@
 .stream-time {
   text-transform: uppercase;
   padding-top: 10px;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .last-entry {
@@ -64,31 +64,31 @@
 }
 
 .color-0 {
-  background-color: #B2EBF2;
+  background-color: $color-0;
 }
 .color-1 {
-  background-color: #80DEEA;
+  background-color: $color-1;
 }
 .color-2 {
-  background-color: #4DD0E1;
+  background-color: $color-2;
 }
 .color-3 {
-  background-color: #26C6DA;
+  background-color: $color-3;
 }
 .color-4 {
-  background-color: #00BCD4;
+  background-color: $color-4;
 }
 .color-5 {
-  background-color: #00ACC1;
+  background-color: $color-5;
 }
 .color-6 {
-  background-color: #0097A7;
+  background-color: $color-6;
 }
 .color-7 {
-  background-color: #00838F;
+  background-color: $color-7;
 }
 .color-8 {
-  background-color: #006064;
+  background-color: $color-8;
 }
 
 @media only screen and (max-width: 500px) {

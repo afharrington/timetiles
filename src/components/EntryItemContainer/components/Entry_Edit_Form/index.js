@@ -2,7 +2,7 @@ import React from 'react';
 import { Field, reduxForm } from "redux-form";
 import { connect } from "react-redux";
 import { updateEntry, fetchEntries } from "../../../../actions";
-import FontIcon from 'material-ui/FontIcon';
+import FontAwesome from "react-fontawesome";
 
 import "./style.scss";
 
@@ -114,7 +114,7 @@ class EntryEditForm extends React.Component {
             <button className="submit-button" type="submit">SAVE</button>
           </div>
         </form>
-        <div className="cancel" onClick={this.props.onExit}><FontIcon className="cancel material-icons">cancel</FontIcon></div>
+        <div className="cancel" onClick={this.props.onExit}><FontAwesome className="cancel-icon" name='times-circle'/></div>
       </div>
     );
   }

@@ -1,7 +1,8 @@
 @import "../../../../styles/main.scss";
 
 .entry-edit-form {
-  background-color: $light-gray;
+  position: relative;
+  background-color: $lightest-gray;
   width: 75%;
   margin: 0 auto;
   color: black;
@@ -85,10 +86,6 @@
 
 .save {
   width: 100px;
-}
-
-.cancel {
-  color: $gray !important;
 }
 
 .button-container {

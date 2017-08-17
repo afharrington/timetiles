@@ -1,7 +1,7 @@
 @import "../../../../styles/main.scss";
 
 .entry-add-form {
-  background-color: white;
+  position: relative;
   width: 75%;
   margin: 0 auto;
   color: black;
@@ -23,13 +23,6 @@
   border: none;
 }
 
-.cancel {
-  display: inline-block;
-  margin-left: 75%;
-  color: #b71c1c;
-  font-size: 12px;
-}
-
 .field-container {
   display: inline;
 }
@@ -40,7 +33,7 @@
   padding-left: 10px;
   width: 90%;
   height: 40px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 300;
   font-weight: bold;
 }
@@ -48,6 +41,7 @@
 .comments {
   font-size: 14px;
   font-weight: normal;
+  margin-top: 15px;
 }
 
 .text-box textarea {
@@ -63,19 +57,19 @@
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   font-family: $main-font;
   font-weight: normal;
-  font-size: 18px;
+  font-size: 14px;
 }
 ::-moz-placeholder { /* Firefox 19+ */
   font-family: $main-font;
-  font-size: 18px;
+  font-size: 14px;
 }
 :-ms-input-placeholder { /* IE 10+ */
   font-family: $main-font;
-  font-size: 18px;
+  font-size: 14px;
 }
 :-moz-placeholder { /* Firefox 18- */
   font-family: $main-font;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .hours, .min {
@@ -89,10 +83,23 @@
   width: 100px;
 }
 
-.cancel {
-  color: $gray !important;
+.cancel-icon {
+  color: $gray;
+  position: absolute;
+  top: 5%;
+  right: 3%;
+  font-size: 24px;
 }
+
+.cancel-icon:hover {
+  color: $accent;
+}
+
 
 .button-container {
   text-align: center;
+}
+
+.submit-button:hover {
+  background-color: $accent;
 }

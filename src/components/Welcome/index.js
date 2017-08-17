@@ -9,7 +9,7 @@ class Welcome extends Component {
       <div className="welcome">
         <div className="brand">
           <div className="logo-container">
-            <img className="logo" src="../../../img/Logo.png" alt="logo"/>
+          
           </div>
           <h1>TimeTiles</h1>
         </div>

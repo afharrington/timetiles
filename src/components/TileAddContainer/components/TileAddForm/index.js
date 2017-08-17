@@ -40,7 +40,7 @@ class TileAddForm extends React.Component {
 
     return (
       <div>
-        <div className="tile-form-exit" onClick={this.props.onExit}><FontAwesome name='times'/></div>
+        <div className="tile-form-exit" onClick={this.props.onExit}><FontAwesome name='times-circle'/></div>
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <Field
             label="Name"
