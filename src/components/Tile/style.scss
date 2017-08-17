@@ -91,26 +91,11 @@
   background-color: #006064;
 }
 
-
 @media only screen and (max-width: 500px) {
   .stream-tile {
-    width: 90%;
-    margin: 0 auto;
-    height: 100px;
+    margin: 5px;
   }
   .stream-content {
-    padding-top: 5px;
-  }
-  .stream-name {
-    padding-top: 5px;
-    font-size: 24px;
-  }
-  .stream-time {
-    padding-top: 2px;
-    font-size: 14px;
-  }
-  .last-entry  p {
-    padding-top: 0px;
-    margin: 0px;
+    padding-top: 10px;
   }
 }
