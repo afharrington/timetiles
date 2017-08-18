@@ -78,6 +78,10 @@ class EntryAddForm extends React.Component {
     if (!values.minutes) {
       values.minutes = 0;
     }
+
+    if (!values.hours) {
+      values.hours = 0;
+    }
     let hoursInMinutes = values.hours * 60;
 
     const dateWithOffset = values.date + this.state.offset;
