@@ -97,7 +97,7 @@ class EntryEditForm extends React.Component {
           <Field
             label="Hrs"
             name="hours"
-            styleclass="hours"
+            styleclass="hours-edit"
             component={this.renderNumbersField}
             min="0"
             max="99"
@@ -105,7 +105,7 @@ class EntryEditForm extends React.Component {
           <Field
             label="Min"
             name="minutes"
-            styleclass="min"
+            styleclass="min-edit"
             component={this.renderNumbersField}
             min="0"
             max="59"

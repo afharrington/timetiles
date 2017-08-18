@@ -3,7 +3,7 @@
 .entry-add-form {
   position: relative;
   background-color: $accent;
-  width: 75%;
+  width: 60%;
   margin: 0 auto;
   color: white;
   margin-top: 10px;
@@ -83,12 +83,11 @@
 }
 
 .hours, .min {
-  background-color: #f4f4f1;
+  background-color: white;
+  width: 60px;
+  height: 30px;
   border-radius: 5px;
-  margin: 5px;
-  width: 50px;
-  height: 20px;
-  margin-top: 30px;
+  margin: 30px 10px 0px 10px;
   text-align: center;
   font-size: 14px;
 }
@@ -100,7 +99,7 @@
 .cancel-icon {
   color: $gray;
   position: absolute;
-  top: 5%;
+  top: 4%;
   right: 3%;
   font-size: 24px;
 }
@@ -120,4 +119,10 @@
 .submit-button:hover {
   background-color: white;
   color: $gray;
+}
+
+@media screen and (max-width: 700px) {
+  .entry-add-form {
+    width: 75%;
+  }
 }

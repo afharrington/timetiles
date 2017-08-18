@@ -3,7 +3,7 @@
 .entry-edit-form {
   position: relative;
   background-color: #f4f4f1;
-  width: 75%;
+  width: 60%;
   margin: 0 auto;
   color: black;
   margin-top: 10px;
@@ -80,13 +80,13 @@
   font-size: 18px;
 }
 
-.hours, .min {
+.hours-edit, .min-edit {
   background-color: white;
   border-radius: 5px;
   margin-left: 10px;
   margin-right: 10px;
-  width: 50px;
-  height: 20px;
+  width: 60px;
+  height: 30px;
   margin-top: 30px;
   text-align: center;
   font-size: 14px;
@@ -104,4 +104,10 @@
 .submit-button:hover {
   background-color: white;
   color: $gray;
+}
+
+@media screen and (max-width: 700px) {
+  .entry-edit-form {
+    width: 75%;
+  }
 }

@@ -1,7 +1,7 @@
 @import "../../../../styles/main.scss";
 
 .entry {
-  width: 75%;
+  width: 60%;
   margin: 0 auto;
   text-align: left;
   margin-top: 10px;
@@ -49,7 +49,7 @@
   position: absolute;
   display: inline-block;
   color: $gray;
-  right: 15%;
+  right: 20%;
   font-size: 16px;
   margin-top: 0px;
   margin-bottom: 0px;
@@ -65,20 +65,32 @@
   margin-top: 30px;
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 700px) {
+  .entry {
+    width: 75%;
+  }
+  .delete, .edit {
+    right: 15%;
+  }
+}
+
+@media screen and (max-width: 400px) {
   .edit, .delete {
     right: 12%;
   }
 }
 
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 375px) {
+  .date {
+    font-size: 13px;
+  }
   .delete {
-    margin-top: 75px;
+    margin-top: 85px;
     right: 12%;
   }
   .edit {
-    margin-top: 75px;
+    margin-top: 85px;
     right: 20%;
   }
 }
