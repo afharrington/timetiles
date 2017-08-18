@@ -6216,8 +6216,8 @@ var AUTHORIZE_USER = exports.AUTHORIZE_USER = "authorize_user";
 var UNAUTHORIZE_USER = exports.UNAUTHORIZE_USER = "unauthorize_user";
 var AUTH_ERROR = exports.AUTH_ERROR = "auth_error";
 
-// const ROOT_URL = "https://timetilesapi.herokuapp.com";
-var ROOT_URL = "http://localhost:3000";
+var ROOT_URL = "https://timetilesapi.herokuapp.com";
+// const ROOT_URL = "http://localhost:3000";
 
 function authorizeUser(_ref, callback) {
   var email = _ref.email,
