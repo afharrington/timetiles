@@ -2,9 +2,10 @@
 
 .entry-add-form {
   position: relative;
+  background-color: $accent;
   width: 75%;
   margin: 0 auto;
-  color: black;
+  color: white;
   margin-top: 10px;
   padding: 10px;
   cursor: pointer;
@@ -14,20 +15,27 @@
 }
 
 .entry-date {
+  color: white;
+  font-weight: bold;
   display: block;
+  text-align: left;
   margin-left: 5%;
   margin-bottom: 10px;
   font-family: $main-font;
   font-size: 18px;
-  width: 300px;
+  width: 275px;
   border: none;
 }
 
-.field-container {
+.numbers-container {
   display: inline;
+  input {
+    border: none;
+  }
 }
 
 .activity, .comments {
+  margin-top: 10px;
   text-align: left; // formats placeholder
   display: block; // keeps field on its own line
   padding-left: 10px;
@@ -42,16 +50,18 @@
   font-size: 14px;
   font-weight: normal;
   margin-top: 15px;
+  height: 80px;
 }
 
 .text-box textarea {
+  background-color: white;
   resize: none;
   box-sizing: border-box;
   margin-left: 5%;
   margin-right: 25px;
   padding-top: 10px;
   border: none;
-  border-bottom: 1px solid #B0BEC5;
+  border-radius: 5px;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -73,7 +83,11 @@
 }
 
 .hours, .min {
+  background-color: #f4f4f1;
+  border-radius: 5px;
+  margin: 5px;
   width: 50px;
+  height: 20px;
   margin-top: 30px;
   text-align: center;
   font-size: 14px;
@@ -92,14 +106,18 @@
 }
 
 .cancel-icon:hover {
-  color: $accent;
+  color: white;
 }
-
 
 .button-container {
   text-align: center;
 }
 
+.submit-button {
+  font-weight: bold;
+}
+
 .submit-button:hover {
-  background-color: $accent;
+  background-color: white;
+  color: $gray;
 }

@@ -42,7 +42,7 @@ class EntryEditForm extends React.Component {
   // Renders the numeric fields configured in the main render() function
   renderNumbersField(field) {
     return (
-      <div className="field-container">
+      <div className="edit-numbers-container">
         <input
           className={field.styleclass}
           type="number"
@@ -111,7 +111,7 @@ class EntryEditForm extends React.Component {
             max="59"
           />
           <div className="button-container">
-            <button className="submit-button" type="submit">SAVE</button>
+            <button className="submit-button" type="submit">SAVE CHANGES</button>
           </div>
         </form>
         <div className="cancel" onClick={this.props.onExit}><FontAwesome className="cancel-icon" name='times-circle'/></div>

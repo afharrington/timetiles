@@ -47,7 +47,7 @@ class EntryAddForm extends React.Component {
   // Renders the numeric fields configured in the main render() function
   renderNumbersField(field) {
     return (
-      <div className="field-container">
+      <div className="numbers-container">
         <input
           className={field.styleclass}
           type="number"

@@ -2,7 +2,7 @@
 
 .entry-edit-form {
   position: relative;
-  background-color: $lightest-gray;
+  background-color: #f4f4f1;
   width: 75%;
   margin: 0 auto;
   color: black;
@@ -21,14 +21,18 @@
   font-size: 12px;
 }
 
-.field-container {
+.edit-numbers-container {
   display: inline;
+  input {
+    border: none;
+  }
 }
 
 .activity-edit, .comments-edit {
   text-align: left; // formats placeholder
   display: block; // keeps field on its own line
   width: 90%;
+  margin-top: 10px;
   margin-left: 5%;
   height: 40px;
   font-size: 18px;
@@ -36,24 +40,27 @@
   font-weight: bold;
 }
 
+.activity-edit {
+  margin-top: 35px;
+}
+
 .comments-edit {
   font-size: 14px;
   font-weight: normal;
-  height: 55px;
+  height: 75px;
   padding-bottom: 0px;
   line-height: 40px;
 }
 
 .text-box-edit textarea {
+  background-color: white;
+  border-radius: 5px;
   resize: none;
   box-sizing: border-box;
-  padding-top: 10px;
+  padding-top: 5px;
   padding-left: 10px;
   padding-bottom: 0px;
-  border-color: #B0BEC5;
-  border-left: none;
-  border-top: none;
-  border-right: none;
+  border: none;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -74,20 +81,27 @@
 }
 
 .hours, .min {
+  background-color: white;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
   width: 50px;
+  height: 20px;
   margin-top: 30px;
   text-align: center;
   font-size: 14px;
-  border: 1px solid #B0BEC5;
-  border-left: none;
-  border-top: none;
-  border-right: none;
-}
-
-.save {
-  width: 100px;
 }
 
 .button-container {
   text-align: center;
+}
+
+.submit-button {
+  font-weight: bold;
+  width: 150px;
+}
+
+.submit-button:hover {
+  background-color: white;
+  color: $gray;
 }

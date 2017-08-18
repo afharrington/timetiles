@@ -19,7 +19,8 @@
 }
 
 .nav a:hover {
-  color: $accent;
+  padding-bottom: 5px;
+  border-bottom: 4px solid white;
 }
 
 .nav a {
@@ -28,13 +29,6 @@
   line-height: 65px;
 }
 
-.nav a:hover {
-  color: $accent;
-}
-
-.nav a.active {
-  color: $accent;
-}
 
 .personal-greeting {
   p {
