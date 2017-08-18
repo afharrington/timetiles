@@ -22,7 +22,7 @@ class TilesView extends Component {
     // else sends an empty string
     return _.map(this.props.tiles, tile => {
 
-      let lastEntry = tile.entries[0] ? tile.entries[0].created_date : "";
+      let lastEntry = tile.entries[0] ? tile.entries[0].date : "";
       // FOR TESTING let lastEntry = tile.entries[0] ? "Wed Jul 12 2017 16:10:02" : "";
 
       // For every 2 days since last entry, subtract -1 from color and send PUT request
