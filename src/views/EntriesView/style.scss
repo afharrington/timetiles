@@ -24,13 +24,24 @@
 }
 // END CSS TRANSITION ANIMATION
 
-
 .tile-name {
-  margin-top: 80px;
   font-family: $main-font;
   font-size: 24px;
   margin-bottom: 20px;
   color: $gray;
+}
+
+.settings-icon {
+  margin-top: 50px;
+  margin-right: 10px;
+  font-size: 26px;
+  display: inline-block;
+  margin-left: 75%;
+  cursor: pointer;
+}
+
+.settings-icon:hover {
+  color: $accent;
 }
 
 .entry-list-container {

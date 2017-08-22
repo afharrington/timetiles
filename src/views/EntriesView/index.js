@@ -1,7 +1,7 @@
 // EntriesView fetches entries for a single tile and renders the components
 // for the tile detail page (with total time, form container, and all entries)
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 import {bindActionCreators} from "redux";
 import { connect } from "react-redux";
 import _ from "lodash";
@@ -10,7 +10,7 @@ import { fetchEntries, updateEntry, deleteEntry, deleteTile } from "../../action
 
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import FontAwesome from "react-fontawesome";
-
+import TileSettings from "../../components/TileSettings";
 import EntryAddContainer from "../../components/EntryAddContainer";
 import EntryItemContainer from "../../components/EntryItemContainer";
 import Alert from "../../components/Alert";
@@ -23,7 +23,8 @@ class EntriesView extends Component {
     super(props);
     this.state = {
       tileId: this.props.match.params.tileId,
-      showAlert: false
+      showAlert: false,
+      showSettings: false
     };
   }
 
@@ -32,12 +33,12 @@ class EntriesView extends Component {
     this.props.fetchEntries(this.state.tileId);
   }
 
-  showAlert() {
-    this.setState({ showAlert: true });
+  toggleAlert() {
+    this.setState({ showAlert: !this.state.showAlert });
   }
 
-  hideAlert() {
-    this.setState({ showAlert: false });
+  toggleSettings() {
+    this.setState({ showSettings: !this.state.showSettings });
   }
 
   deleteTile() {
@@ -86,7 +87,15 @@ class EntriesView extends Component {
       alert = <Alert
         message="Are you sure you want to delete this tile and its entries? This action cannot be undone."
         onDelete={this.deleteTile.bind(this)}
-        onCancel={this.hideAlert.bind(this)}
+        onCancel={this.toggleAlert.bind(this)}
+        />
+    }
+
+    let settings = null;
+    if (this.state.showSettings) {
+      settings = <TileSettings
+        tileId={this.state.tileId}
+        onClick={this.toggleSettings.bind(this)}
         />
     }
 
@@ -94,6 +103,10 @@ class EntriesView extends Component {
       <div className="entries-view">
         <div className="entry-list-container">
         {alert}
+        {settings}
+        <div className="settings-button" onClick={this.toggleSettings.bind(this)}>
+          <FontAwesome className="settings-icon" name='cog'/>
+        </div>
         <div className="tile-name">{this.props.tile.name}</div>
           {this.renderTotalMinutes()}
           <div className="entries-container">
@@ -105,7 +118,7 @@ class EntriesView extends Component {
               {this.renderEntries()}
             </ReactCSSTransitionGroup>
           </div>
-          <div className="delete-tile" onClick={this.showAlert.bind(this)}>DELETE ALL</div>
+          <div className="delete-tile" onClick={this.toggleAlert.bind(this)}>DELETE ALL</div>
         </div>
       </div>
     );

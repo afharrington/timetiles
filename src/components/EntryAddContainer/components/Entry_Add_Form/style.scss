@@ -54,6 +54,7 @@
 }
 
 .text-box textarea {
+  outline: none;
   background-color: white;
   resize: none;
   box-sizing: border-box;
@@ -83,6 +84,7 @@
 }
 
 .hours, .min {
+  outline: none;
   background-color: white;
   width: 60px;
   height: 30px;
