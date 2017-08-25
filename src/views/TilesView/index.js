@@ -8,6 +8,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import TileAddContainer from "../../components/TileAddContainer";
 import Tile from "../../components/Tile";
+import TileInstructions from "../../components/TileInstructions";
 
 import "./style.scss";
 
@@ -70,7 +71,7 @@ class TilesView extends Component {
     });
   }
 
-  renderMessage() {
+  renderInstructions() {
     function isEmpty(obj) {
       for (let key in obj) {
         if(obj.hasOwnProperty(key))
@@ -81,7 +82,7 @@ class TilesView extends Component {
 
     if (isEmpty(this.props.tiles) ) {
       return (
-        <div className="tiles-message">Add your first tile</div>
+        <TileInstructions/>
       )
     }
   }
@@ -89,7 +90,8 @@ class TilesView extends Component {
   render() {
     return (
       <div className="tiles-view">
-          {this.renderMessage()}
+          {this.renderInstructions()}
+
         <div className="tiles-grid">
           <TileAddContainer />
           {this.renderTiles()}

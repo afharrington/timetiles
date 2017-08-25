@@ -11,6 +11,7 @@ import { fetchEntries, updateEntry, deleteEntry, deleteTile } from "../../action
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import FontAwesome from "react-fontawesome";
 import TileSettings from "../../components/TileSettings";
+import EntryInstructions from "../../components/EntryInstructions";
 import EntryAddContainer from "../../components/EntryAddContainer";
 import EntryItemContainer from "../../components/EntryItemContainer";
 import Alert from "../../components/Alert";
@@ -47,15 +48,37 @@ class EntriesView extends Component {
     });
   }
 
+  renderInstructions() {
+    function isEmpty(obj) {
+      for (let key in obj) {
+        if(obj.hasOwnProperty(key))
+          return false;
+      }
+      return true;
+    }
+
+    if (isEmpty(this.props.tile.entries) ) {
+      return (
+        <EntryInstructions/>
+      )
+    }
+  }
+
   // Renders total minutes (from tile's state) as hours and minutes
   renderTotalMinutes() {
     let totalMinutes = this.props.tile.totalMinutes;
     let hours = Math.floor(totalMinutes / 60);
     let minutes = totalMinutes % 60;
 
-    return (
-      <div className="total-time">{hours} hr {minutes} min</div>
-    )
+    if (totalMinutes) {
+      return (
+        <div className="total-time">{hours} hr {minutes} min</div>
+      )
+    } else {
+      return (
+        <div></div>
+      )
+    }
   }
 
   // Creates an entry item for each entry in the entries array on tile's state
@@ -113,20 +136,23 @@ class EntriesView extends Component {
         <div className="settings-button" onClick={this.toggleSettings.bind(this)}>
           <FontAwesome className="settings-icon" name='cog'/>
         </div>
-        <div className="tile-name">{this.props.tile.name}</div>
-          {this.renderTotalMinutes()}
-          <div className={ this.state.showSettings ? "entries-container transparent" : "entries-container" }>
-            <EntryAddContainer tileId={this.state.tileId}/>
-            <ReactCSSTransitionGroup
-              transitionName="example"
-              transitionEnterTimeout={500}
-              transitionLeaveTimeout={500}>
-              {this.renderEntries()}
-            </ReactCSSTransitionGroup>
-          </div>
-          <div className="delete-tile" onClick={this.toggleAlert.bind(this)}>DELETE ALL</div>
+        <div className="tile-name">
+          {this.props.tile.name}
         </div>
+        {this.renderInstructions()}
+        {this.renderTotalMinutes()}
+        <div className={ this.state.showSettings ? "entries-container transparent" : "entries-container" }>
+          <EntryAddContainer tileId={this.state.tileId}/>
+          <ReactCSSTransitionGroup
+            transitionName="example"
+            transitionEnterTimeout={500}
+            transitionLeaveTimeout={500}>
+            {this.renderEntries()}
+          </ReactCSSTransitionGroup>
+        </div>
+        <div className="delete-tile" onClick={this.toggleAlert.bind(this)}>DELETE TILE</div>
       </div>
+    </div>
     );
   }
 }

@@ -30,6 +30,7 @@ class TileSettings extends React.Component {
     let sentValues;
     if (values.mode == "goal") {
       sentValues = {
+        name: values.name,
         mode: "goal",
         goalHours: Number(values.goalHours) || 5,
         goalCycle: values.goalCycle || 7,
@@ -40,6 +41,7 @@ class TileSettings extends React.Component {
       }
     } else {
       sentValues = {
+        name: values.name,
         mode: "continuous",
         continuousDays:  values.continuousDays || 2,
         continuousHours: values.continuousHours || 1,
