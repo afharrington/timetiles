@@ -94,7 +94,13 @@ class EntriesView extends Component {
     let settings = null;
     if (this.state.showSettings) {
       settings = <TileSettings
+        tileName={this.props.tile.name}
         tileId={this.state.tileId}
+        mode={this.props.tile.mode}
+        continuousHours={this.props.tile.continuousHours}
+        continuousDays={this.props.tile.continuousDays}
+        goalHours={this.props.tile.goalHours}
+        goalCycle={this.props.tile.goalCycle}
         onClick={this.toggleSettings.bind(this)}
         />
     }
@@ -109,7 +115,7 @@ class EntriesView extends Component {
         </div>
         <div className="tile-name">{this.props.tile.name}</div>
           {this.renderTotalMinutes()}
-          <div className="entries-container">
+          <div className={ this.state.showSettings ? "entries-container transparent" : "entries-container" }>
             <EntryAddContainer tileId={this.state.tileId}/>
             <ReactCSSTransitionGroup
               transitionName="example"

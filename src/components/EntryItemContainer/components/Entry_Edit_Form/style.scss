@@ -5,13 +5,26 @@
   background-color: #f4f4f1;
   width: 60%;
   margin: 0 auto;
-  color: black;
+  color: $gray;
   margin-top: 10px;
   padding: 10px;
   cursor: pointer;
   text-align: center;
   font-family: $main-font;
   box-shadow: $shadow;
+}
+
+.date-edit {
+  color: $gray;
+  font-weight: bold;
+  display: block;
+  text-align: left;
+  margin-left: 5%;
+  margin-bottom: 10px;
+  font-family: $main-font;
+  font-size: 18px;
+  width: 275px;
+  border: none;
 }
 
 .cancel {

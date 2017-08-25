@@ -40,6 +40,10 @@
   cursor: pointer;
 }
 
+.transparent {
+  opacity: 0.4;
+}
+
 .settings-icon:hover {
   color: $accent;
 }

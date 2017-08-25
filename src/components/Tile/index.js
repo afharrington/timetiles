@@ -27,15 +27,15 @@ class StreamTile extends React.Component {
     )
   }
 
-  renderLastEntry() {
-    let lastEntryText = this.props.lastEntry == "" ?
+  renderMostRecentEntry() {
+    let mostRecentText = this.props.mostRecentDate == "" ?
       <div></div>
-    : <p><span className="last-label"></span><Moment className="stream-time" fromNow>{this.props.lastEntry}</Moment></p>
+    : <p><span className="last-label"></span><Moment className="stream-time" fromNow>{this.props.mostRecentDate}</Moment></p>
 
     let textClassName = `last-entry ${this.state.textColor}`
     return (
       <div className={textClassName}>
-        {lastEntryText}
+        {mostRecentText}
       </div>
     )
   }
@@ -51,7 +51,7 @@ class StreamTile extends React.Component {
             <p>{this.props.name}</p>
           </div>
           {this.renderTime()}
-          {this.renderLastEntry()}
+          {this.renderMostRecentEntry()}
         </div>
       </div>
     );

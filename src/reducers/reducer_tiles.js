@@ -1,5 +1,5 @@
 import _ from "lodash";
-import { FETCH_TILES, DELETE_TILE, FETCH_ENTRIES, DELETE_ENTRY } from "../actions";
+import { FETCH_TILES, DELETE_TILE, UPDATE_TILE, FETCH_ENTRIES, UPDATE_ENTRY, DELETE_ENTRY } from "../actions";
 
 export default function(state = {}, action) {
   switch (action.type) {
@@ -9,9 +9,11 @@ export default function(state = {}, action) {
       return _.mapKeys(action.payload.data, '_id');
     case DELETE_TILE:
       return _.omit(state, action.payload);
+    case UPDATE_TILE:
+      return {...state, [action.payload.data._id]: action.payload.data };
     case FETCH_ENTRIES:
       // action.payload.data is the entire tile
-      // Turns array of entires into an object with _id values as keys
+      // Turns array of entries into an object with _id values as keys
       let entries = _.mapKeys(action.payload.data.entries, '_id');
       // Add entries to the tile object
       let tile = {...action.payload.data, entries};

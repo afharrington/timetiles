@@ -92,6 +92,7 @@ class EntryAddForm extends React.Component {
       comments: values.comments,
       minutes: Number(values.minutes) + Number(hoursInMinutes)
     };
+
     // dispatch createEntry then call onExit function to exit form
     this.props.createEntry(formattedValues, this.props.tileId, () => {
       this.props.onExit();

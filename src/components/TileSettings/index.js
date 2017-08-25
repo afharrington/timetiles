@@ -2,6 +2,7 @@ import React from 'react';
 import { connect, compose } from 'react-redux';
 import { Field, reduxForm, formValueSelector } from 'redux-form';
 import FontAwesome from "react-fontawesome";
+import { updateTile } from '../../actions';
 import './style.scss';
 
 class TileSettings extends React.Component {
@@ -10,10 +11,12 @@ class TileSettings extends React.Component {
 
     this.state = {
       initialData: {
-        modeValue: "continuous",
-        hours: 1,
-        days: 2,
-        "goal-hours": 5
+        name: this.props.tileName,
+        mode: this.props.mode,
+        continuousHours: this.props.continuousHours,
+        continuousDays: this.props.continuousDays,
+        goalHours: this.props.goalHours || 5,
+        goalCycle: this.props.goalCycle || 7
       }
     }
   }
@@ -22,13 +25,42 @@ class TileSettings extends React.Component {
     this.props.initialize(this.state.initialData);
   }
 
+  // Switching modes resets color to 0
+  onSubmit(values) {
+    let sentValues;
+    if (values.mode == "goal") {
+      sentValues = {
+        mode: "goal",
+        goalHours: Number(values.goalHours) || 5,
+        goalCycle: values.goalCycle || 7,
+        goalLastCycleStart: Date.now(),
+        color: 0,
+        continuousDays: null,
+        continuousHours: null
+      }
+    } else {
+      sentValues = {
+        mode: "continuous",
+        continuousDays:  values.continuousDays || 2,
+        continuousHours: values.continuousHours || 1,
+        color: 0,
+        goalLastCycleStart: null,
+        goalHours: null,
+        goalCycle: null,
+      }
+    }
+    this.props.updateTile(this.props.tileId, sentValues, () => {
+      this.props.onClick();
+    });
+  }
+
   renderGoalSettings() {
     return (
       <div className="goal-settings">
         <div className="setting-item">
           <label>Log</label>
           <Field
-            name="goal-hours"
+            name="goalHours"
             id="goal-hours"
             component="input"
             type="number"
@@ -38,7 +70,7 @@ class TileSettings extends React.Component {
           <label>hours of activity for each</label>
         </div>
         <div className="setting-item">
-          <Field name="cycle" component="select" className="cycle-menu">
+          <Field name="goalCycle" component="select" className="cycle-menu">
             <option value="7">7-Day</option>
             <option value="14">14-Day</option>
             <option value="30">30-Day</option>
@@ -46,6 +78,7 @@ class TileSettings extends React.Component {
           <label>cycle</label>
         </div>
       </div>
+
     )
   }
 
@@ -54,7 +87,7 @@ class TileSettings extends React.Component {
       <div className="continuous-settings">
         <div className="setting-item">
           <label>Boost color for every</label>
-          <Field name="hours" component="select" className="hours-menu">
+          <Field name="continuousHours" component="select" className="hours-menu" >
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -70,7 +103,7 @@ class TileSettings extends React.Component {
         </div>
         <div className="setting-item">
           <label>Fade color for every</label>
-          <Field name="days" component="select" className="days-menu">
+          <Field name="continuousDays" component="select" className="days-menu">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -85,6 +118,7 @@ class TileSettings extends React.Component {
           <label>days since last activity</label>
         </div>
       </div>
+
     )
   }
 
@@ -99,10 +133,16 @@ class TileSettings extends React.Component {
 
     return (
       <div className="tile-settings">
-        <h1>Settings</h1>
+        <h1>Tile Settings</h1>
         <div className="tile-settings-exit" onClick={this.props.onClick}><FontAwesome name='times-circle'/></div>
-        <form onSubmit={handleSubmit}>
-          <div>
+        <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+          <div className="setting-item">
+            <label>Name</label>
+            <Field className="name-field" name="name" component="input">
+            </Field>
+          </div>
+          <div className="setting-item">
+            <label>Mode</label>
             <Field name="mode" component="select" className="mode-menu">
               <option value="continuous">Continuous (default)</option>
               <option value="goal">Goal</option>
@@ -133,4 +173,4 @@ TileSettings = connect(
 )(TileSettings);
 
 
-export default TileSettings;
+export default connect(null, { updateTile })(TileSettings);

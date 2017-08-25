@@ -2,35 +2,56 @@
 
 .tile-settings {
   color: $gray;
+  text-align: left;
   z-index: 1;
   background-color: $light-gray;
   width: 70%;
-  height: 250px;
   margin-left: 15%;
   position: fixed;
   margin-top: 110px;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 
   h1 {
-    font-size: 20px;
-    margin-bottom: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+  }
+
+  button {
+    width: 20%;
+    margin-top: 15px;
+    margin-left: 40%;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+}
+
+.setting-item {
+  width: 100%;
+  margin-left: 20px;
+  margin-top: 10px;
+  font-size: 18px;
+
+  label {
+    margin-right: 10px;
   }
 
   input {
-    width: 50px;
     height: 25px;
-    margin-left: 8px;
-    margin-right: 8px;
-    text-align: center;
+    text-align: left;
+    margin-right: 5px;
+    padding-left: 5px;
     font-size: 16px;
     background-color: white;
     border: none;
     border-radius: 5px;
   }
+}
 
-  button {
-    margin-top: 15px;
-  }
+.name-field {
+  width: 250px;
 }
 
 .tile-settings-exit {
@@ -40,12 +61,6 @@
   color: $gray;
   font-size: 24px;
   cursor: pointer;
-}
-
-.goal-settings, .continuous-settings {
-  margin-top: 10px;
-  margin-left: 5px;
-  margin-right: 5px;
 }
 
 .mode-menu, .cycle-menu, .days-menu, .hours-menu {
@@ -59,8 +74,6 @@
 
 .mode-menu {
   width: 180px;
-  margin-top: 20px;
-  margin-bottom: 20px;
 }
 
 .cycle-menu {
@@ -71,24 +84,29 @@
 .days-menu, .hours-menu {
   width: 50px;
   margin-left: 5px;
-  margin-right: 5px;
+  margin-right: 10px;
 }
 
-.setting-item {
-  margin-bottom: 15px;
-  font-size: 18px;
+.continuous-settings, .goal-settings {
+  margin-top: 20px;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
   .tile-settings {
     width: 90%;
     margin-left: 5%;
     height: 310px;
+
+    button {
+      width: 40%;
+      margin-left: 30%;
+
+    }
   }
 
-  .goal-settings, .continuous-settings {
-    margin-top: 5px;
-    margin-left: 10px;
-    margin-right: 10px;
+  .setting-item {
+    width: 90%;
+    font-size: 16px;
   }
+
 }

@@ -3,6 +3,7 @@ import { Field, reduxForm } from "redux-form";
 import { connect } from "react-redux";
 import { updateEntry, fetchEntries } from "../../../../actions";
 import FontAwesome from "react-fontawesome";
+import moment from 'moment';
 
 import "./style.scss";
 
@@ -11,8 +12,19 @@ class EntryEditForm extends React.Component {
   constructor(props) {
     super(props);
 
+    // Converts date it to local time using offset
+    let localDate = moment(this.props.date).format();
+
+    // Saves offset for use in form submission
+    const offset = localDate.slice(19, 27);
+
     this.state = {
+      localDate,
+      offset,
+      tileId: this.props.tileId,
+
       initialData: {
+        date: localDate.slice(0,-9),
         content: this.props.content,
         comments: this.props.comments,
         hours: this.props.hours,
@@ -55,22 +67,38 @@ class EntryEditForm extends React.Component {
     )
   }
 
+  renderDateField(field) {
+    return (
+      <div className="edit-date-container">
+        <input
+          className={field.styleclass}
+          type="datetime-local"
+          {...field.input}
+        />
+      </div>
+    )
+  }
+
   // Converts time inputs to minutes and dispatches createEntry action creator
   // with form values, then exits the form and re-fetches entries for the tile
   onSubmit(values) {
-
     if (!values.minutes) {
       values.minutes = 0;
     }
     let hoursInMinutes = values.hours * 60;
 
+    // Format must be: 2017-08-25T10:49-04:00
+    const dateWithOffset = values.date + this.state.offset;
+
     let formattedValues = {
+      date: dateWithOffset,
       content: values.content,
       comments: values.comments,
       minutes: Number(values.minutes) + Number(hoursInMinutes)
     };
+
     // dispatch createEntry then call onExit function to exit form
-    this.props.updateEntry(formattedValues, this.props.tileId, this.props.entryId, () => {
+    this.props.updateEntry(formattedValues, this.state.tileId, this.props.entryId, () => {
       this.props.fetchEntries(this.props.tileId);
       this.props.onExit();
     });
@@ -78,10 +106,15 @@ class EntryEditForm extends React.Component {
 
   render() {
     const { handleSubmit } = this.props;
-
     return (
       <div className="entry-edit-form">
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+          <Field
+            label="Date"
+            name="date"
+            styleclass="date-edit"
+            component={this.renderDateField}
+          />
           <Field
             label="Activity"
             name="content"
@@ -127,7 +160,6 @@ function validate(values) {
     }
     return errors;
 }
-
 
 export default reduxForm({
   validate

@@ -2,6 +2,7 @@ import axios from "axios";
 
 export const FETCH_TILES = "fetch_tiles";
 export const CREATE_TILE = "create_tiles";
+export const UPDATE_TILE = "update_tile";
 export const DELETE_TILE = "delete_tile";
 export const UPDATE_COLOR = "update_color";
 
@@ -92,8 +93,23 @@ export function createTile(values, callback) {
   }
 }
 
+
+export function updateTile(tileId, values, callback) {
+  return function(dispatch) {
+    axios.put(`${ROOT_URL}/tile/${tileId}/settings`, values, {
+      headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
+  })
+    .then((response) => {
+      dispatch({ type: UPDATE_TILE, payload: response })
+    })
+    .then(() => callback())
+    .catch((error) => {
+      console.log(error);
+    })
+  }
+}
+
 export function deleteTile(id, callback) {
-  console.log("id:", id);
   const request = axios.delete(`${ROOT_URL}/tile/${id}`, {
     headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
   })
@@ -115,14 +131,19 @@ export function updateColor(id, colorValue, callback) {
   }
 }
 
+
 export function fetchEntries(tileId) {
-  const request = axios.get(`${ROOT_URL}/tile/${tileId}`, {
+  return function(dispatch) {
+    axios.get(`${ROOT_URL}/tile/${tileId}`, {
     headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
   })
-  return {
-    type: FETCH_ENTRIES,
-    payload: request
-  };
+    .then((response) => {
+      dispatch({ type: FETCH_ENTRIES, payload: response })
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+  }
 }
 
 // ENTRIES:
@@ -142,15 +163,21 @@ export function createEntry(values, tileId, callback) {
   }
 }
 
+
+
 export function updateEntry(values, tileId, entryId, callback) {
-  const request = axios.put(`${ROOT_URL}/tile/${tileId}/entry/${entryId}`, values, {
-    headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
-  })
-    .then(() => callback());
-  return {
-    type: UPDATE_ENTRY,
-    payload: request
-  };
+  return function(dispatch) {
+    axios.put(`${ROOT_URL}/tile/${tileId}/entry/${entryId}`, values, {
+      headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
+    })
+      .then(function(response){
+        dispatch({type: UPDATE_ENTRY, payload: response});
+      })
+      .then(() => callback())
+      .catch(function(err) {
+        console.log(err);
+      })
+  }
 }
 
 export function deleteEntry(tileId, entryId, callback) {
