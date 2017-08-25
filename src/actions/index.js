@@ -15,8 +15,8 @@ export const AUTHORIZE_USER = "authorize_user";
 export const UNAUTHORIZE_USER = "unauthorize_user";
 export const AUTH_ERROR = "auth_error";
 
-// const ROOT_URL = "https://timetilesapi.herokuapp.com";
-const ROOT_URL = "http://localhost:3000";
+const ROOT_URL = "https://timetilesapi.herokuapp.com";
+// const ROOT_URL = "http://localhost:3000";
 
 export function authorizeUser({email, password}, callback) {
   return function(dispatch) {
